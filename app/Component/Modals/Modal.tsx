@@ -1,9 +1,11 @@
 'use client';
 
 import {IoMdCloseCircleOutline} from 'react-icons/io'
+import Button from '../Button';
+import { useCallback } from 'react';
+
 interface ModalProps{
     isOpen:boolean
-    onOpen: ()=>void;
     onClose: ()=>void;
     onSubmit: ()=>void;
     title?:string;
@@ -16,10 +18,9 @@ interface ModalProps{
 }
 const Modal:React.FC<ModalProps>=({
     isOpen,
-    onOpen,
     onClose,
     onSubmit,
-    title = "login",
+    title ,
     actionLabel,
     secondaryAction,
     secondaryActionLabel,
@@ -27,6 +28,26 @@ const Modal:React.FC<ModalProps>=({
     body,
     footer
 })=>{
+    const closeHandler = useCallback(()=>{
+      setTimeout(()=>{
+         onClose();
+      },300)
+    },[onClose]);
+
+    const submitHandler=useCallback(()=>{
+      onSubmit();
+    },[onSubmit])
+
+    const secondaryActionHandler = useCallback(()=>{
+      if(!secondaryAction){
+        return null;
+      }
+      secondaryAction();
+    },[secondaryAction])
+
+    if(!isOpen){
+      return null;
+    }
     return(
         <div className="
         bg-neutral-800/70
@@ -35,8 +56,6 @@ const Modal:React.FC<ModalProps>=({
         items-center
         fixed
         inset-0
-        // overflow-x-hidden
-        // overflow-y-auto
         z-50 
         ">
           <div className="
@@ -44,20 +63,20 @@ const Modal:React.FC<ModalProps>=({
             duration-300
             bg-white
             w-full
-            md:w-4/6
+            sm:w-4/6
             lg:w-3/6
             xl:w-2/5
             my-6
             mx-auto
             h-full
-            md:h-auto
+            sm:h-auto
             rounded-xl
           ">
               {/* content */}
               <div className="
                flex
                flex-col
-               
+               mx-2
               ">
                 {/* Header */}
                 <div className='
@@ -67,9 +86,10 @@ const Modal:React.FC<ModalProps>=({
                  relative
                  py-5
                  md:py-4
+                 
                 '>
                     <button 
-                    onClick={()=>{}}
+                    onClick={closeHandler}
                     className='
                       left-9 
                       absolute
@@ -84,11 +104,35 @@ const Modal:React.FC<ModalProps>=({
                 </div>
                 <hr />
                 {/* Body */}
-                <div className='relative pt-6 px-6'>
+                <div className='relative pt-6 px-6 pb-6 mx-2'>
                     {body}
                 </div>
                 {/* Footer */}
-                <div></div>
+                <div className='flex flex-col justify-center items-center  mx-2 mb-4'>
+                  <div className='
+                    flex 
+                    flex-row
+                    justify-between
+                    w-full
+                    mb-4
+                  '>
+                    {secondaryAction && secondaryActionLabel && (
+                      <Button
+                        label={secondaryActionLabel}
+                        onClick={secondaryActionHandler}
+                        disabled={disabled}
+                        outline={true}
+                      />
+                    )}
+                    <Button
+                     label={actionLabel}
+                     onClick={submitHandler} 
+                     disabled={disabled}
+                     outline={false}
+                    />
+                  </div>
+                  {footer}
+                </div>
               </div>
           </div>
         </div>
