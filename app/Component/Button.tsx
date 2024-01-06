@@ -38,7 +38,7 @@ const Button:React.FC<ButtonProps>=({
          `}
         >
             {Icon && (
-                <Icon size={30} className="absolute left-6 top-1" />
+                <Icon size={30} className="absolute left-6 top-2" />
             )}
             {label}
         </button>

@@ -1,6 +1,6 @@
 'use client';
 
-import useRegisterModal from "@/app/Hooks/useRegisterModal";
+import useLoginModal from "@/app/Hooks/useLoginModal";
 import Modal from "./Modal";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -12,11 +12,11 @@ import Button from "../Button";
 import {FcGoogle} from 'react-icons/fc';
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
-import useLoginModal from "@/app/Hooks/useLoginModal";
+import useRegisterModal from "@/app/Hooks/useRegisterModal";
 
-const RegisterModal = () => {
-    const registerModal = useRegisterModal();
+const LoginModal = () => {
     const loginModal = useLoginModal();
+    const registerModal = useRegisterModal();
     const [isLoading,setIsLoading]=useState(false);
 
     const{
@@ -29,22 +29,21 @@ const RegisterModal = () => {
         defaultValues:{
             email:'',
             password:'',
-            username:''
         }
     })
     
     const onSubmit:SubmitHandler<FieldValues> = (data)=>{
         setIsLoading(true);
 
-        axios.post('/api/register',data)
+        axios.post('/api/login',data)
         .then(()=>{
-            toast.success('Successfully registered.',{
+            toast.success('Successfully logged in.',{
                 icon:'😊'
             })
-            registerModal.onClose();
+            loginModal.onClose();
         })
         .catch((error)=>{
-            toast.error(error,{
+            toast.error("Something went wrong.",{
                 icon:'😟'
             })
         })
@@ -53,14 +52,14 @@ const RegisterModal = () => {
         })
     }
     const toggle=useCallback(()=>{
-        registerModal.onClose();
-        loginModal.onOpen();
+        registerModal.onOpen();
+        loginModal.onClose();
     },[])
     const bodyContent = (
         <div>
             <Heading
-              title="Welcome to Airbnb"
-              subtitle="Create an account"
+              title="Welcome back to Airbnb"
+              subtitle="Login to your account"
              />
              <Input 
                id="email"
@@ -69,15 +68,7 @@ const RegisterModal = () => {
                register={register}
                errors={errors}
                required
-             />
-             <Input 
-               id="username"
-               label="Username"
-               type={"text"}
-               register={register}
-               errors={errors}
-               required
-             />
+             /> 
              <Input 
                id="password"
                label="Password"
@@ -97,7 +88,7 @@ const RegisterModal = () => {
                  icon={FcGoogle}
                  outline
                  label="Continue with google"
-                 onClick={()=>{}}
+                 onClick={()=>signIn('google')}
                 />
                 <Button 
                  icon={AiFillGithub}
@@ -107,24 +98,24 @@ const RegisterModal = () => {
                 />
             </div>
             <div className="flex flex-row justify-center ">
-                <div className="pr-2 text-gray-500">Already have an account? </div>
+                <div className="pr-2 text-gray-500">New to Airbnb? </div>
                 <div 
                  onClick={toggle}
                  className="cursor-pointer hover:underline underline-offset-1"
                 >
-                     Log in
+                    Create an account
                 </div>
             </div>
         </div>
     )
-
+    
     return(
         <div>
             <Modal
-              title="Register"
+              title="Login"
               actionLabel={"Continue"}
-              isOpen={registerModal.isOpen}
-              onClose={registerModal.onClose}
+              isOpen={loginModal.isOpen}
+              onClose={loginModal.onClose}
               onSubmit={handleSubmit(onSubmit)}
               disabled={isLoading}
               body={bodyContent}
@@ -134,4 +125,4 @@ const RegisterModal = () => {
     )
 }
 
-export default RegisterModal;
+export default LoginModal;
