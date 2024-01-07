@@ -13,8 +13,10 @@ import {FcGoogle} from 'react-icons/fc';
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import useRegisterModal from "@/app/Hooks/useRegisterModal";
+import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
+    const router = useRouter();
     const loginModal = useLoginModal();
     const registerModal = useRegisterModal();
     const [isLoading,setIsLoading]=useState(false);
@@ -35,26 +37,26 @@ const LoginModal = () => {
     const onSubmit:SubmitHandler<FieldValues> = (data)=>{
         setIsLoading(true);
 
-        axios.post('/api/login',data)
-        .then(()=>{
-            toast.success('Successfully logged in.',{
-                icon:'😊'
-            })
-            loginModal.onClose();
-        })
-        .catch((error)=>{
-            toast.error("Something went wrong.",{
-                icon:'😟'
-            })
-        })
-        .finally(()=>{
-            setIsLoading(false)
+        signIn('credentials',{...data,redirect:false})
+        .then((response)=>{
+            setIsLoading(false);
+            if(response?.ok){
+                toast.success("You are logged in.",{
+                    icon:'😊'
+                })
+                router.refresh();
+                loginModal.onClose();
+            }
+            if(response?.error){
+                toast.error('Somthing went wrong')
+            }
+
         })
     }
     const toggle=useCallback(()=>{
-        registerModal.onOpen();
         loginModal.onClose();
-    },[])
+        registerModal.onOpen();
+    },[registerModal,loginModal])
     const bodyContent = (
         <div>
             <Heading
@@ -88,7 +90,7 @@ const LoginModal = () => {
                  icon={FcGoogle}
                  outline
                  label="Continue with google"
-                 onClick={()=>signIn('google')}
+                 onClick={()=>signIn("google")}
                 />
                 <Button 
                  icon={AiFillGithub}

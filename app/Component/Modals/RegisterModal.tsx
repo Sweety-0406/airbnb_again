@@ -29,7 +29,7 @@ const RegisterModal = () => {
         defaultValues:{
             email:'',
             password:'',
-            username:''
+            name:''
         }
     })
     
@@ -55,7 +55,7 @@ const RegisterModal = () => {
     const toggle=useCallback(()=>{
         registerModal.onClose();
         loginModal.onOpen();
-    },[])
+    },[registerModal,loginModal])
     const bodyContent = (
         <div>
             <Heading
@@ -71,7 +71,7 @@ const RegisterModal = () => {
                required
              />
              <Input 
-               id="username"
+               id="name"
                label="Username"
                type={"text"}
                register={register}
