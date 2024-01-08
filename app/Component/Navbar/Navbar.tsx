@@ -5,14 +5,21 @@ import Logo from './Logo';
 import Search from './Search';
 import Usermenu from './Usermenu';
 import Categories from './Categories';
+import { useRouter } from 'next/navigation';
+import { useCallback } from 'react';
 
 interface NavbarProps {
     currentUser ?: SafeUser | null
 }
 const Navbar:React.FC<NavbarProps>=({currentUser})=>{
-    console.log(currentUser)
+    console.log(currentUser);
+    const router = useRouter();
+    const mainPage = useCallback(()=>{
+        router.push('/')
+    },[router])
     return (
-        <div className="
+        <div 
+        className="
           fixed
           bg-white
           shadow-sm
@@ -20,7 +27,7 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
            w-full
            gap-10
         ">
-            <Container >
+            <Container onClick={mainPage} >
                 <div className="
                     my-4
                     flex 

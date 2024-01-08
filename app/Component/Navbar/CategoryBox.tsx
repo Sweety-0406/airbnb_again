@@ -13,7 +13,7 @@ interface CategoryBoxProps{
 const CategoryBox:React.FC<CategoryBoxProps> =({
     label,
     icon:Icon,
-    selected
+    selected,
 })=>{
     const router = useRouter();
     const params = useSearchParams();
@@ -38,16 +38,16 @@ const CategoryBox:React.FC<CategoryBoxProps> =({
     },[router,label])
     return(
         <div 
-        onClick={()=>{}}
+        onClick={clickHandler}
         className={`
           flex 
           flex-col
           justify-center
           items-center
-          text-slate-500
           hover:text-black
           cursor-pointer
           ${selected ? 'underline underline-offset-4' : ' no-underline' }
+          ${selected ? 'text-black':'text-slate-500'}
         `}>
             <div>
                 <Icon size={26} />

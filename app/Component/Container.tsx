@@ -2,12 +2,16 @@
 
 interface ContainerProps{
     children :React.ReactNode;
+    onClick?:()=>void
 }
 const Container:React.FC<ContainerProps>=({
-    children
+    children,
+    onClick
 })=>{
     return(
-        <div className="
+        <div
+         onClick={onClick}
+         className="
         max-w-[2520px]
         mx-auto
         px-4

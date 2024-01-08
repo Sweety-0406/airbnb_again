@@ -7,6 +7,7 @@ import { FaSkiing } from 'react-icons/fa';
 import { IoDiamond } from 'react-icons/io5';
 import { BsSnow } from "react-icons/bs";
 import CategoryBox from "./CategoryBox";
+import { useSearchParams } from "next/navigation";
 
 export const categories=[
     {
@@ -87,6 +88,8 @@ export const categories=[
 ]
  
 const Categories = () =>{
+    const params = useSearchParams();
+    const category = params?.get('category');
     return (
         <div className="
          border-t-[2px]
@@ -94,7 +97,8 @@ const Categories = () =>{
          
          mb-5 
         ">
-            <div className="
+            <div
+            className="
              flex 
              flex-row
              justify-between
@@ -110,7 +114,7 @@ const Categories = () =>{
                     key={item.label}
                     label ={item.label}
                     icon={item.icon}
-                    
+                    selected={category===item.label}
                     />
                 ))}
             </div>
