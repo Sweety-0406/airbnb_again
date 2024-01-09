@@ -3,10 +3,13 @@
 import useRentModal from "@/app/Hooks/useRentModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { categories } from "../Navbar/Categories";
 import CategoryInput from "../Inputs/CategoryInput";
-import { FieldValue, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 enum STEPS{
     CATEGORY = 0,
@@ -17,13 +20,16 @@ enum STEPS{
     PRICE = 5
 }
 const RentModal=()=>{
+    const router = useRouter();
     const rentModal = useRentModal();
     const[steps,setSteps] = useState(STEPS.CATEGORY)
+    const [isLoading,setIsLoading]=useState(false);
 
     const{
         register,
         handleSubmit,
         watch,
+        setValue,
         formState:{
             errors,
         },
@@ -42,6 +48,51 @@ const RentModal=()=>{
         }
     })
 
+    const category = watch('category')
+    const setCustomValue=(id:string,value:any)=>{
+        setValue(id,value,{
+          shouldDirty:true,
+          shouldTouch:true,
+          shouldValidate:true,
+        })  
+    } 
+    
+    const onNext =()=>{
+        setSteps((value) => value+1)
+    }
+
+    const onBack = useMemo(()=>{
+        setSteps((value) => value-1)
+    },[])
+
+    const onSubmit: SubmitHandler<FieldValues> =useCallback((data)=>{
+        if(steps != STEPS.PRICE){
+            return onNext();
+        }
+        setIsLoading(true);
+        axios.post('/api/listings',data)
+        .then(()=>{
+            toast.success("Listings are successfully created.")
+            router.refresh();
+            reset();
+            setSteps(STEPS.CATEGORY);
+            rentModal.onClose();
+        })
+        .catch(()=>{
+            toast.error("Something went wrong")
+        })
+        .finally(()=>{
+            setIsLoading(false);
+        })
+    },[steps,router])
+
+    if(steps === STEPS.LOCATION){
+        bodyContent=(
+            <div>
+                hiii
+            </div>
+        )
+    }
     var bodyContent = (
         <div>
             <Heading
@@ -56,11 +107,14 @@ const RentModal=()=>{
                overflow-y-auto
             ">
                 {categories.map((item)=>(
-                    <CategoryInput 
-                     label={item.label}
-                     icon={item.icon}
-                     onClick={()=>{}}
+                    <div key={item.label} className="col-span-1">
+                    <CategoryInput
+                        onClick={(category)=>setCustomValue('category',category)} 
+                        label={item.label}
+                        isSelected={category === item.label}
+                        icon={item.icon}
                     />
+                </div>
                 ))}
             </div>
         </div>
