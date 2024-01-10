@@ -10,6 +10,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import SelectCountry from "../Inputs/SelectCountry";
+import dynamic from "next/dynamic";
 
 enum STEPS{
     CATEGORY = 0,
@@ -49,6 +51,12 @@ const RentModal=()=>{
     })
 
     const category = watch('category')
+    const location = watch('location')
+
+    const Map = useMemo(()=>dynamic(()=>import('../Map'),{
+       ssr:false
+    }),[location])
+
     const setCustomValue=(id:string,value:any)=>{
         setValue(id,value,{
           shouldDirty:true,
@@ -61,9 +69,9 @@ const RentModal=()=>{
         setSteps((value) => value+1)
     }
 
-    const onBack = useMemo(()=>{
+    const onBack = ()=>{
         setSteps((value) => value-1)
-    },[])
+    }
 
     const onSubmit: SubmitHandler<FieldValues> =useCallback((data)=>{
         if(steps != STEPS.PRICE){
@@ -86,13 +94,6 @@ const RentModal=()=>{
         })
     },[steps,router])
 
-    if(steps === STEPS.LOCATION){
-        bodyContent=(
-            <div>
-                hiii
-            </div>
-        )
-    }
     var bodyContent = (
         <div>
             <Heading
@@ -120,16 +121,36 @@ const RentModal=()=>{
         </div>
     )
 
+
+    if(steps === STEPS.LOCATION){
+        bodyContent=(
+            <div className="flex flex-col gap-8 ">
+                <Heading
+                  title="Where is your place located?"
+                  subtitle="Help guests to find you!"
+                />
+                <SelectCountry
+                  value={location}
+                  onChange={(value)=>setCustomValue('location',value)}
+                 />
+                 <Map 
+                   center={location?.latlng}
+                 />
+            </div>
+        )
+    }
+
     return (
         <div>
             <Modal 
-              title="Airbnb your home !"
-              isOpen = {rentModal.isOpen}
-              onClose={rentModal.onClose}
-              onSubmit={()=>{}}
-              actionLabel="Continue"
-              body={bodyContent}
-            />
+                title="Airbnb your home !"
+                isOpen={rentModal.isOpen}
+                onClose={rentModal.onClose}
+                onSubmit={handleSubmit(onSubmit)}
+                secondaryAction={steps === STEPS.CATEGORY ? undefined : onBack}
+                secondaryActionLabel={steps === STEPS.CATEGORY? undefined : 'Back'}
+                body={bodyContent} 
+                actionLabel={steps === STEPS.PRICE ? 'Submit' : 'Continue'}            />
         </div>
     )
 }

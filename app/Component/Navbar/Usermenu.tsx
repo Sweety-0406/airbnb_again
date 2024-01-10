@@ -9,6 +9,7 @@ import useLoginModal from '@/app/Hooks/useLoginModal';
 import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
 import useRentModal from '@/app/Hooks/useRentModal';
+import { ModeToggle } from '../ui/ToggleMode';
 
 interface UsermenuProps{
     currentUser? : SafeUser | null;
@@ -76,6 +77,7 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                         <Avatar src={currentUser?.image} />
                     </div>
                 </div>
+                
             </div>
 
             {isOpen && (

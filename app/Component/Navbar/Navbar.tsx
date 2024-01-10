@@ -7,6 +7,7 @@ import Usermenu from './Usermenu';
 import Categories from './Categories';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
+import { ModeToggle } from '../ui/ToggleMode';
 
 interface NavbarProps {
     currentUser ?: SafeUser | null
@@ -38,6 +39,7 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
                    <Logo />
                    <Search />
                    <Usermenu currentUser={currentUser} />
+                  
                 </div>                 
             </Container>
             <Categories />
