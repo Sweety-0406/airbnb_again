@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import SelectCountry from "../Inputs/SelectCountry";
 import dynamic from "next/dynamic";
+import Counter from "../Inputs/Counter";
 
 enum STEPS{
     CATEGORY = 0,
@@ -52,6 +53,9 @@ const RentModal=()=>{
 
     const category = watch('category')
     const location = watch('location')
+    const guestCount = watch('guestCount')
+    const roomCount = watch('roomCount')
+    const bathroomCount = watch('bathroomCount')
 
     const Map = useMemo(()=>dynamic(()=>import('../Map'),{
        ssr:false
@@ -136,6 +140,38 @@ const RentModal=()=>{
                  <Map 
                    center={location?.latlng}
                  />
+            </div>
+        )
+    }
+
+    if(steps === STEPS.INFO){
+        bodyContent = (
+            <div>
+                <Heading
+                 title="Share some basic info about you"
+                 subtitle="What amenities do you have ?"
+                />
+                <Counter 
+                  title="Guests"
+                  subtitle="How many guests do you allow ?"
+                  value={guestCount}
+                  onChange={(value)=>setCustomValue('guestCount',value)}
+                />
+                <hr />
+                <Counter 
+                  title="Guests"
+                  subtitle="How many guests do you allow ?"
+                  value={roomCount}
+                  onChange={(value)=>setCustomValue('roomCount',value)}
+                />
+                <hr />
+                <Counter 
+                  title="Guests"
+                  subtitle="How many guests do you allow ?"
+                  value={bathroomCount}
+                  onChange={(value)=>setCustomValue('bathroomCount',value)}
+                />
+              
             </div>
         )
     }
