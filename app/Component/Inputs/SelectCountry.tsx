@@ -22,7 +22,7 @@ const SelectCountry:React.FC<SelectCountryProps>=({
 })=>{
     const {getAll} = useCountries();
     return (
-        <div>
+        <div className='z-50'>
             <Select 
               placeholder='Anywhere'
               options={getAll()}

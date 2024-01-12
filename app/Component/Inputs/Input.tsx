@@ -66,6 +66,7 @@ const Input:React.FC<InputProps>=({
                duration-150
                translate-y-3
                text-sm
+               font-semibold
                ${formatPrice?'pl-9':'pl-4'}
                peer-focus:translate-y-1
                peer-focus:scale-75

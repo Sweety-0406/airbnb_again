@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import SelectCountry from "../Inputs/SelectCountry";
 import dynamic from "next/dynamic";
 import Counter from "../Inputs/Counter";
+import Input from "../Inputs/Input";
+import UploadImage from "../Inputs/UploadImage";
 
 enum STEPS{
     CATEGORY = 0,
@@ -56,6 +58,7 @@ const RentModal=()=>{
     const guestCount = watch('guestCount')
     const roomCount = watch('roomCount')
     const bathroomCount = watch('bathroomCount')
+    const imageSrc = watch('imageSrc')
 
     const Map = useMemo(()=>dynamic(()=>import('../Map'),{
        ssr:false
@@ -82,7 +85,7 @@ const RentModal=()=>{
             return onNext();
         }
         setIsLoading(true);
-        axios.post('/api/listings',data)
+        axios.post('/api/listing',data)
         .then(()=>{
             toast.success("Listings are successfully created.")
             router.refresh();
@@ -95,6 +98,7 @@ const RentModal=()=>{
         })
         .finally(()=>{
             setIsLoading(false);
+            rentModal.onClose()
         })
     },[steps,router])
 
@@ -128,18 +132,22 @@ const RentModal=()=>{
 
     if(steps === STEPS.LOCATION){
         bodyContent=(
-            <div className="flex flex-col gap-8 ">
+            <div className="flex flex-col gap-8  ">
                 <Heading
                   title="Where is your place located?"
                   subtitle="Help guests to find you!"
                 />
+                <div className="z-40">
                 <SelectCountry
                   value={location}
                   onChange={(value)=>setCustomValue('location',value)}
                  />
+                </div>
+                 <div className="z-10">
                  <Map 
                    center={location?.latlng}
                  />
+                 </div>
             </div>
         )
     }
@@ -172,6 +180,71 @@ const RentModal=()=>{
                   onChange={(value)=>setCustomValue('bathroomCount',value)}
                 />
               
+            </div>
+        )
+    }
+
+    if(steps === STEPS.IMAGES){
+        bodyContent = (
+            <div>
+               <Heading 
+                  title="Add a photo of your place"
+                  subtitle="Show guests what your place looks like!"
+               /> 
+               <UploadImage 
+                 value={imageSrc}
+                 onChange={(value)=>setCustomValue('imageSrc',value)}
+               />
+            </div>
+        )
+    }
+
+    if(steps === STEPS.DESCRIPTION){
+        bodyContent = (
+            <div className="flex flex-col">
+                <Heading 
+                  title="How would you describe your place?"
+                  subtitle="Short and sweet works best!"
+                />
+                <div className="mb-8">
+                    <Input 
+                    id="title"
+                    label="Title"
+                    register={register}
+                    errors={errors}
+                    />
+                </div>
+                <hr />
+                <div className="mt-4">
+                    <Input 
+                    id="description"
+                    label="Description"
+                    register={register}
+                    errors={errors}
+                    />
+                </div>
+            </div>
+        )
+    }
+
+    if(steps === STEPS.PRICE){
+        bodyContent=(
+            <div>
+                <Heading 
+                  title="Now, set your price"
+                  subtitle="How much do you charge per night?"
+                />
+                <div>
+                    <Input
+                      id="price"
+                      label="Price"
+                      register={register}
+                      errors={errors}
+                      type="number"
+                      formatPrice
+                      required
+                     />
+                </div>
             </div>
         )
     }

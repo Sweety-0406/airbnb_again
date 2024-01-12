@@ -10,6 +10,7 @@ import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
 import useRentModal from '@/app/Hooks/useRentModal';
 import { ModeToggle } from '../ui/ToggleMode';
+import RentModal from '../Modals/RentModal';
 
 interface UsermenuProps{
     currentUser? : SafeUser | null;
@@ -28,8 +29,9 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
         if(!currentUser){
             return loginModal.onOpen();
         }
-        return rentModal.onOpen();
-    },[loginModal,rentModal])
+        console.log("hii")
+         rentModal.onOpen();
+    },[currentUser,loginModal,rentModal])
     return(
         <div className='relative'>
             <div className="
@@ -51,6 +53,7 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                 hover:rounded-full
                 hover:bg-gray-100
                 ">
+                   
                     Airbnb your home
                 </div>
                 <div
@@ -110,7 +113,7 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                             />
                             <MenuItem 
                             label='Airbnb my home'
-                            onClick={()=>{}}
+                            onClick={onRent}
                             />
                             <hr />
                             <MenuItem 
