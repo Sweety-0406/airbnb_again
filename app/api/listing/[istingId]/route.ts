@@ -1,5 +1,29 @@
+import getCurrentUser from '@/app/action/getCurrentUser';
 import prisma from '@/app/libs/prismadb';
+import { NextResponse } from 'next/server';
 
-export async function DELETE(request:Request) {
+interface IParams{
+    listingId:string
+}
+export async function DELETE(
+    request:Request,
+    {params}:{params:IParams}
+) {
+    const currentUser= await getCurrentUser();
+    if(!currentUser){
+        return NextResponse.error();
+    }
+    const {listingId} = params;
+    if(!listingId || typeof listingId !== 'string'){
+        throw new Error('Invalid ListingId');
+    }
+
+    const listing  = await prisma.listing.delete({
+        where:{
+            id:listingId,
+            userId:currentUser.id
+        }
+    })
     
+    return NextResponse.json(listing)
 }

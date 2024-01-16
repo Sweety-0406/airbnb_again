@@ -43,7 +43,7 @@ export async function DELETE(
         return NextResponse.error()
     }
     const {listingId} = params;
-    if(!listingId || typeof listingId != 'string'){
+    if(!listingId || typeof listingId !== 'string'){
         throw new Error();
     } 
     let favoriteIds = [...(currentUser.favoriteIds || [])]
