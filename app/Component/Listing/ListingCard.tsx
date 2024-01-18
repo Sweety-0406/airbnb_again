@@ -8,6 +8,7 @@ import { useCallback, useMemo } from "react"
 import {format} from 'date-fns'
 import Image from 'next/image'
 import HeartButton from "../HeartButton"
+import useFavorite from "@/app/Hooks/useFavorites"
 
 interface ListingCardProps{
     data : SafeListing
@@ -24,16 +25,14 @@ const ListingCard:React.FC<ListingCardProps>=({
     currentUser,
     reservation,
     actionId,
-    actionLabel=" ",
+    actionLabel,
     disabled,
     onAction
 })=>{
     const router=useRouter();
     const {getByValue} = useCountries();
     const location = getByValue(data.locationValue);
-    const handleCancel = useCallback(()=>{
-
-    },[])
+    
     const price = useMemo(()=>{
         if(!reservation){
             return data.price;
@@ -54,18 +53,21 @@ const ListingCard:React.FC<ListingCardProps>=({
           className="
            cursor-pointer
            group
+           w-full
           " 
         >
             <div className="
               flex
               flex-col
               gap-2
-              group-hover:scale-100
+              w-full
+              
             ">
                 <div className="
                   flex
                   flex-col
                   relative
+                  aspect-square
                 ">
                     <Image 
                       fill
@@ -73,12 +75,29 @@ const ListingCard:React.FC<ListingCardProps>=({
                       src={data.imageSrc}
                       className="
                        rounded-lg
+                       object-cover
+                       w-full
+                       h-full
+                       group-hover:scale-110
+                       transition
                       "
                     />
                     <HeartButton
                       currentUser = {currentUser}
                       listingId={data.id}
                     />
+                </div>
+                <div className="font-bold text-lg">
+                    {location?.region}, {location?.value}
+                </div>
+                <div className="text-gray-500 ">
+                    {reservationDate || data.category}
+                </div>
+                <div className="flex flex-row">
+                    <div className="font-semibold pr-2 ">${price}</div>
+                    {!reservation && (
+                        <div className="text-gray-500">night</div>
+                    )}
                 </div>
             </div>
         </div>
