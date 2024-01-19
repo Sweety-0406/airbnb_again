@@ -5,7 +5,7 @@ import getCurrentUser from "@/app/action/getCurrentUser";
 import getListingById from "@/app/action/getListingById";
 import { SafeUser } from "@/app/types";
 import { Reservation } from "@prisma/client";
-import ListingClient from "../listingClient";
+import ListingClient from "../ListingClient";
 
 interface IParams{
    listingId?:string 
