@@ -68,13 +68,15 @@ const ListingCard:React.FC<ListingCardProps>=({
                   flex-col
                   relative
                   aspect-square
+                   overflow-hidden
+                  rounded-lg
                 ">
                     <Image 
                       fill
                       alt='Listing'
                       src={data.imageSrc}
                       className="
-                       rounded-lg
+                      
                        object-cover
                        w-full
                        h-full

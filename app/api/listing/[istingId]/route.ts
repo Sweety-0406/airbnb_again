@@ -3,7 +3,7 @@ import prisma from '@/app/libs/prismadb';
 import { NextResponse } from 'next/server';
 
 interface IParams{
-    listingId:string
+    listingId?:string
 }
 export async function DELETE(
     request:Request,
