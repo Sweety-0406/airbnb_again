@@ -74,3 +74,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.rdrMonth{
+  width: 100% !important;
+}
+
+.rdrCalendarWrapper{
+  font-size: 12px !important;
+  width: 100% !important;
+}

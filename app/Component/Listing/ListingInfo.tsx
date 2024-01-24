@@ -4,7 +4,11 @@ import { SafeUser } from "@/app/types";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import dynamic from "next/dynamic";
+import useCountries from "@/app/Hooks/useCountries";
 
+
+const Map = dynamic(()=> import('../Map'))
 interface ListingInfo{
     user : SafeUser 
     category : {
@@ -27,6 +31,8 @@ const ListingInfo:React.FC<ListingInfo> = ({
     guestCount,
     locationValue
 }) => {
+    const {getByValue} = useCountries();
+    const coordinates = getByValue(locationValue)?.latlng
     return(
         <div className="
          flex
@@ -61,6 +67,11 @@ const ListingInfo:React.FC<ListingInfo> = ({
             {description}
            </div>
            <hr />
+            <div className="z-0">
+            <Map 
+             center={coordinates}
+            />
+            </div>
         </div>
     )
 }

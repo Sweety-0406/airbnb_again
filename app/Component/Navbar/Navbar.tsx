@@ -27,6 +27,7 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
            border-b-2
            w-full
            gap-10
+           z-10
         ">
             <Container onClick={mainPage} >
                 <div className="
