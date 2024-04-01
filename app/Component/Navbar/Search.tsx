@@ -1,10 +1,51 @@
 'use client';
 
 import {BsSearch} from 'react-icons/bs'
+import useSearchModal from '@/app/Hooks/useSearchModal';
+import useCountries from '@/app/Hooks/useCountries';
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
+import { differenceInDays } from 'date-fns';
 const Search=()=>{
+    const searchModal = useSearchModal()
+    const {getByValue} = useCountries()
+    const params = useSearchParams()
+
+    const locationValue = params?.get('locationValue')
+    const startDate = params?.get('startDate')
+    const endDate = params?.get('endDate')
+    const guestCount = params?.get('guestCount')
+
+    const locationHandler = useMemo(()=>{
+        if(!locationValue){
+            return "Anywhere"
+        }
+        return getByValue(locationValue as string)?.label
+    },[locationValue,getByValue])
+
+    const durationHandler = useMemo(()=>{
+        if(startDate && endDate){
+            let start = new Date(startDate as string)
+            let end = new Date(endDate as string)
+            var totalDays = differenceInDays(end,start)
+            if(totalDays === 0){
+                totalDays = 1
+            }
+            return `${totalDays} Days`
+        }
+        return "Any Week"
+    },[startDate,endDate])
+
+    const guestHandler = useMemo(()=>{
+        if(guestCount){
+            return `${guestCount} Guests`
+        }
+        return "Add guests"
+    },[guestCount])
+
     return(
         <div
-         onClick={()=>{}}
+         onClick={searchModal.onOpen}
          className="
           border-[1px]
           rounded-full
@@ -21,7 +62,7 @@ const Search=()=>{
                   font-semibold
                   hover:underline underline-offset-2
                 ">
-                    Anywhere
+                    {locationHandler}
                 </div>
                 <div
                  className="
@@ -32,7 +73,7 @@ const Search=()=>{
                   font-semibold
                   hover:underline underline-offset-2
                 ">
-                    Any week
+                    {durationHandler} 
                 </div>
                    <div className='hidden sm:block'>
                         <div className=" flex flex-row justify-between items-center">
@@ -43,7 +84,7 @@ const Search=()=>{
                             text-gray-600
                             hover:underline underline-offset-2
                             ">
-                                Add guests
+                                {guestHandler}
                             </div>
                             <div className="bg-rose-500 rounded-full text-white w-7 h-7 text-center pt-1 pl-1">
                             <BsSearch size={18}/>

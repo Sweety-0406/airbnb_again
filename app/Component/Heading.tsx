@@ -19,7 +19,13 @@ const Heading:React.FC<HeadingProps>=({
               ${center ? 'text-center':'text-start'}
             `}>
                 {title}</div>
-            <div className="text-md text-gray-500">{subtitle}</div>
+            <div className={` 
+                  text-md 
+                text-gray-500
+                ${center ? 'text-center':'text-start'}
+                `}>
+                {subtitle}
+            </div>
         </div>
     )
 }

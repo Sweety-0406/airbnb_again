@@ -15,7 +15,7 @@ interface NavbarProps {
 const Navbar:React.FC<NavbarProps>=({currentUser})=>{
     console.log(currentUser);
     const router = useRouter();
-    const mainPage = useCallback(()=>{
+    const mainPage = useCallback(()=>{ //not using want to why?
         router.push('/')
     },[router])
     return (
@@ -29,7 +29,7 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
            gap-10
            z-10
         ">
-            <Container onClick={mainPage} >
+            <Container >
                 <div className="
                     my-4
                     flex 

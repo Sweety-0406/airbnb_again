@@ -19,7 +19,7 @@ export default async function getReservation(params:IParams) {
             query.listing = {userId:authorId}
         }
 
-        const reservations = await prisma?.reservation.findMany({
+        const reservations = await prisma.reservation.findMany({
              where:query,
              include:{
                 listing:true
@@ -28,8 +28,8 @@ export default async function getReservation(params:IParams) {
                 createdAt:'desc'
              }
         })
-        const safeReservation = reservations?.map((reservation)=>({
-            ...reservations,
+        const safeReservation = reservations.map((reservation)=>({
+            ...reservation,
             createdAt:reservation.createdAt.toISOString(),
             startDate:reservation.startDate.toISOString(),
             endDate:reservation.endDate.toISOString(),

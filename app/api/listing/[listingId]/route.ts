@@ -3,7 +3,7 @@ import prisma from '@/app/libs/prismadb';
 import { NextResponse } from 'next/server';
 
 interface IParams{
-    listingId?:string
+    listingId:string
 }
 export async function DELETE(
     request:Request,
@@ -18,7 +18,7 @@ export async function DELETE(
         throw new Error('Invalid ListingId');
     }
 
-    const listing  = await prisma.listing.delete({
+    const listing  = await prisma.listing.deleteMany({
         where:{
             id:listingId,
             userId:currentUser.id

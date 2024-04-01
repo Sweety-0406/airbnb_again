@@ -11,11 +11,13 @@ import { signOut } from 'next-auth/react';
 import useRentModal from '@/app/Hooks/useRentModal';
 import { ModeToggle } from '../ui/ToggleMode';
 import RentModal from '../Modals/RentModal';
+import { useRouter } from 'next/navigation';
 
 interface UsermenuProps{
     currentUser? : SafeUser | null;
 }
 const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
+    const router = useRouter()
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -25,13 +27,15 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
         setIsOpen((value)=>!value)
     },[])
 
+
     const onRent =useCallback(()=>{
         if(!currentUser){
             return loginModal.onOpen();
         }
-        console.log("hii")
          rentModal.onOpen();
     },[currentUser,loginModal,rentModal])
+    
+
     return(
         <div className='relative'>
             <div className="
@@ -97,19 +101,19 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                             <>
                             <MenuItem 
                             label='My trips'
-                            onClick={()=>{}}
+                            onClick={()=>router.push("/trips")}
                             />
                             <MenuItem 
                             label='My favorites'
-                            onClick={()=>{}}
+                            onClick={()=>router.push('/favorites')}
                             />
                             <MenuItem 
                             label='My reservation'
-                            onClick={()=>{}}
+                            onClick={()=>router.push("/reservations")}
                             />
                             <MenuItem 
                             label='My properties'
-                            onClick={()=>{}}
+                            onClick={()=>router.push('/properties')}
                             />
                             <MenuItem 
                             label='Airbnb my home'
@@ -146,3 +150,4 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
 }
 
 export default Usermenu;
+

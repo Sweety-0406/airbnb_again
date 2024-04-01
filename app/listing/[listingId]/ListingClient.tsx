@@ -1,7 +1,7 @@
 'use client';
 
 import { Reservation } from "@prisma/client";
-import { SafeListing, SafeUser } from "../../types";
+import { SafeListing, SafeReservation, SafeUser } from "../../types";
 import Container from "../../Component/Container";
 import useCountries from "../../Hooks/useCountries";
 import ListingHead from "../../Component/Listing/ListingHead";
@@ -18,12 +18,12 @@ import { Range } from "react-date-range";
 
 
 const initialDateRange = {
-    startDate : new Date,
-    endDate : new Date,
+    startDate : new Date(),
+    endDate : new Date(),
     key:'selection'
 }
 interface ListingClientProps{
-    reservations?:Reservation[]
+    reservations?:SafeReservation[]
     listing:SafeListing & {
         user : SafeUser
     }
@@ -41,12 +41,14 @@ const ListingClient:React.FC<ListingClientProps> = ({
         let dates:Date[]=[];
         reservations.forEach((reservation)=>{
             const range = eachDayOfInterval({
-                start:reservation.startDate,
-                end:reservation.endDate
+                start:new Date(reservation.startDate),
+                end:new Date(reservation.endDate)
+                
             })
             dates = [...dates, ...range];
         })
         return dates;
+        
     },[reservations])
 
     const [isLoading,setIsLoading]=useState(false);
@@ -67,7 +69,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
         .then(()=>{
             toast.success('Successfully reservaed.')
             setDateRange(initialDateRange);
-            router.refresh();
+            router.push('/trips')
         })
         .catch(()=>{
             toast.error('Something went wrong...')
@@ -107,8 +109,6 @@ const ListingClient:React.FC<ListingClientProps> = ({
         })
     },[listing.category])
 
-    console.log("jiii")
-    console.log(category)
     return (
         <Container>
             <div className="max-w-screen-lg max-auto mx-auto mt-44">

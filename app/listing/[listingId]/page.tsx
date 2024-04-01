@@ -1,11 +1,12 @@
 import ClientOnly from "@/app/Component/ClientOnly";
 import Container from "@/app/Component/Container";
-import EmptyState from "@/app/EmptyState";
+import EmptyState from "@/app/Component/EmptyState";
 import getCurrentUser from "@/app/action/getCurrentUser";
 import getListingById from "@/app/action/getListingById";
 import { SafeUser } from "@/app/types";
 import { Reservation } from "@prisma/client";
 import ListingClient from "./ListingClient";
+import getReservation from "@/app/action/getReservations";
 
 interface IParams{
    listingId?:string 
@@ -14,8 +15,8 @@ interface IParams{
 const ListingPage = async ({params}:{params:IParams})=>{
     const listing = await getListingById(params) 
     const currentUser = await getCurrentUser()
-    console.log("hiiiii")
-    console.log(listing)
+    const reservations= await getReservation(params) 
+
     if(!listing){
         return (
             <ClientOnly>
@@ -28,6 +29,7 @@ const ListingPage = async ({params}:{params:IParams})=>{
             <ListingClient 
               listing = {listing}
               currentUser = {currentUser}
+              reservations={reservations}
             />
         </ClientOnly>
     )
