@@ -81,6 +81,8 @@ const ListingCard:React.FC<ListingCardProps>=({
                   aspect-square
                    overflow-hidden
                   rounded-lg
+                  border-2
+                border-red-300
                 ">
                     <Image 
                       fill

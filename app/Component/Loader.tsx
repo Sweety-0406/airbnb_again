@@ -1,9 +1,9 @@
-import {RingLoader} from 'react-spinners'
+import {PuffLoader} from 'react-spinners'
 
 const Loader = () =>{
     return(
         <div>
-            <RingLoader
+            <PuffLoader
             size={150}
             color='red'
             />

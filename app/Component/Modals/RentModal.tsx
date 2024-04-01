@@ -189,7 +189,7 @@ const RentModal=()=>{
             <div>
                <Heading 
                   title="Add a photo of your place"
-                  subtitle="Show guests what your place looks like!"
+                  subtitle="Show guests how your place looks like!"
                /> 
                <UploadImage 
                  value={imageSrc}
