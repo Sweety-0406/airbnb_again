@@ -1,10 +1,12 @@
-import {PuffLoader} from 'react-spinners'
+"use client"
+
+import {RingLoader} from 'react-spinners'
 
 const Loader = () =>{
     return(
-        <div>
-            <PuffLoader
-            size={150}
+        <div className='mt-28'>
+            <RingLoader
+            size={100}
             color='red'
             />
         </div>

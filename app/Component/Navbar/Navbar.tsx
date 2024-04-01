@@ -15,9 +15,7 @@ interface NavbarProps {
 const Navbar:React.FC<NavbarProps>=({currentUser})=>{
     console.log(currentUser);
     const router = useRouter();
-    const mainPage = useCallback(()=>{ //not using want to why?
-        router.push('/')
-    },[router])
+    
     return (
         <div 
         className="
@@ -36,7 +34,8 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
                     flex-row
                     items-center
                     justify-between
-                ">
+                "
+                >
                    <Logo />
                    <Search />
                    <Usermenu currentUser={currentUser} />

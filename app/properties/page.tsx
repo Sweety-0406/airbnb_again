@@ -26,8 +26,8 @@ const PropertiesPage = async ()=>{
         return(
             <ClientOnly> 
                 <EmptyState
-                    title="No Trips Found!"
-                    subtitle="Looks like you havent reserved any trips" 
+                    title="No Properties Found!"
+                    subtitle="Looks like you no properties yet" 
                 />
             </ClientOnly>   
         )

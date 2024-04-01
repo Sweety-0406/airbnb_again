@@ -8,8 +8,12 @@ export interface IListingParams{
   startDate?:string;
   endDate?:string;
   locationValue?:string;
-  category?:string
+  category?:string;
+  page?:string;
+
 }
+
+var itemCount =0
 
 export default async function getListings(params : IListingParams) {
    try {
@@ -24,6 +28,11 @@ export default async function getListings(params : IListingParams) {
       category
     } = params;
 
+    let page:number = 1
+    if(params.page){
+      page = parseInt(params.page,10)
+    }
+    const perPage:number = 12
     let query:any = {}
 
     if(userId){
@@ -79,8 +88,12 @@ export default async function getListings(params : IListingParams) {
       where:query,
         orderBy:{
             createdAt:'desc'
-        }
+        },
+        skip:(perPage * (page-1)),
+        take:perPage
     }) 
+
+     itemCount = await prisma.listing.count({})
 
     const safeListing = listing.map((listing)=>({
        ...listing,
@@ -91,3 +104,5 @@ export default async function getListings(params : IListingParams) {
      throw new Error(error)
    }
 }
+
+export {itemCount}

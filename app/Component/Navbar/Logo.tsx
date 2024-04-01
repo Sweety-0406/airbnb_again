@@ -1,9 +1,15 @@
 'use client';
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 const Logo=()=>{
+    const router = useRouter()
+    const mainPage = useCallback(()=>{ 
+        router.push('/')
+    },[router])
     return(
-        <div className="mx-3">
+        <div className="mx-3" onClick={mainPage}>
             <Image 
               width='50'
               height='50'
