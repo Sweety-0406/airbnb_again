@@ -23,7 +23,7 @@ const FavoritePage = async ()=>{
 
     if(listing.length == 0){
         return(
-            <ClientOnly> //GIVES ERROR ?
+            <ClientOnly>
                 <EmptyState
                     title="No Trips Found!"
                     subtitle="Looks like you havent reserved any trips" 

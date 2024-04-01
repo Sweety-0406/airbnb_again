@@ -35,7 +35,7 @@ const CategoryBox:React.FC<CategoryBoxProps> =({
          query:updatedQuery
        })
        router.push(url)
-    },[router,label])
+    },[router,label,params])
     return(
         <div 
         onClick={clickHandler}
