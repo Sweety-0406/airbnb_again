@@ -6,8 +6,6 @@ import Search from './Search';
 import Usermenu from './Usermenu';
 import Categories from './Categories';
 import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
-import { ModeToggle } from '../ui/ToggleMode';
 
 interface NavbarProps {
     currentUser ?: SafeUser | null

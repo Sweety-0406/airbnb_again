@@ -9,13 +9,12 @@ import LoginModal from './Component/Modals/LoginModal'
 import getCurrentUser from './action/getCurrentUser'
 import RentModal from './Component/Modals/RentModal'
 import SearchModal from './Component/Modals/SearchModal'
-import { ThemeProvider } from './Component/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Holidays Homes & Apartment Rentals - Airbnb',
-  description: 'Airbnb Clone',
+  title: 'Airbnb Clone',
+  description: 'Holidays Homes & Apartment Rentals - Airbnb',
 }
 
 export default async function RootLayout({
