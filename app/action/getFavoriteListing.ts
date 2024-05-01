@@ -14,6 +14,10 @@ export default async function getFavoriteListing(){
                 id:{
                     in:[...(currentUser.favoriteIds || [])]
                 }
+            },
+            include:{
+                images: true,
+                videos: true
             }
         })
     

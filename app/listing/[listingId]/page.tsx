@@ -7,6 +7,8 @@ import { SafeUser } from "@/app/types";
 import { Reservation } from "@prisma/client";
 import ListingClient from "./ListingClient";
 import getReservation from "@/app/action/getReservations";
+import ListingFooterContent from "@/app/Component/Listing/listingFooterContent";
+
 
 interface IParams{
    listingId?:string 
@@ -31,6 +33,12 @@ const ListingPage = async ({params}:{params:IParams})=>{
               currentUser = {currentUser}
               reservations={reservations}
             />
+            <div className="mt-7">
+                <hr/>
+                <footer>
+                    <ListingFooterContent />
+                </footer>
+            </div>
         </ClientOnly>
     )
 }

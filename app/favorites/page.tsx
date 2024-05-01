@@ -25,7 +25,7 @@ const FavoritePage = async ()=>{
         return(
             <ClientOnly>
                 <EmptyState
-                    title="No Trips Found!"
+                    title="No Favourites Found!"
                     subtitle="Looks like you havent reserved any trips" 
                 />
             </ClientOnly>

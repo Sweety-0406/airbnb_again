@@ -2,7 +2,7 @@
 
 import {AiOutlineMenu} from 'react-icons/ai'
 import Avatar from '../Avatar';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/Hooks/useRegisterModal';
 import useLoginModal from '@/app/Hooks/useLoginModal';
@@ -24,6 +24,24 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
     const toggleIsOpen = useCallback(()=>{
         setIsOpen((value)=>!value)
     },[])
+
+    useEffect(()=>{
+        document.addEventListener("click",clickHandler,true)
+    },[])
+    const refone = useRef(null)
+
+    const clickHandler = (e:any) =>{
+        
+        if (refone.current) {
+            if (!(refone.current as HTMLElement).contains(e.target)) {
+                setIsOpen(false);
+                console.log("outside");
+            } else {
+                setIsOpen(true);
+                console.log("inside");
+            }
+        }
+    }
 
 
     const onRent =useCallback(()=>{
@@ -54,6 +72,7 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                 cursor-pointer
                 hover:rounded-full
                 hover:bg-gray-100
+                truncate
                 ">
                    
                     Airbnb your home
@@ -86,7 +105,9 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
             </div>
 
             {isOpen && (
-                <div className='
+                <div
+                 ref={refone}
+                 className='
                   absolute 
                   rounded-xl
                   shadow-md

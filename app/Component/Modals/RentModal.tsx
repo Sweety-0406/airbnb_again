@@ -15,6 +15,19 @@ import dynamic from "next/dynamic";
 import Counter from "../Inputs/Counter";
 import Input from "../Inputs/Input";
 import UploadImage from "../Inputs/UploadImage";
+import { zodResolver } from "@hookform/resolvers/zod"
+import {z} from "zod"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import UploadVideo from "../Inputs/UploadVideo";
+
 
 enum STEPS{
     CATEGORY = 0,
@@ -24,6 +37,12 @@ enum STEPS{
     DESCRIPTION = 4,
     PRICE = 5
 }
+
+const formSchema = z.object({
+    sightImages: z.object({ url: z.string()}).array(),  
+    sightVideos: z.object({ url: z.string()}).array(),  
+})
+
 const RentModal=()=>{
     const router = useRouter();
     const rentModal = useRentModal();
@@ -47,18 +66,32 @@ const RentModal=()=>{
             price:1,
             location:null,
             category:'',
-            imageSrc:'',
+            images:[],
+            videos:[],
             title:'',
             description:''
         }
     })
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues:{
+            sightImages:[],
+            sightVideos:[]
+        }
+        
+    })
+    const onSubmitForImagesAndVideos = async (values: z.infer<typeof formSchema>)=>{
+        setCustomValue('images', values.sightImages);
+        setCustomValue('videos', values.sightVideos);
+    }
 
     const category = watch('category')
     const location = watch('location')
     const guestCount = watch('guestCount')
     const roomCount = watch('roomCount')
     const bathroomCount = watch('bathroomCount')
-    const imageSrc = watch('imageSrc')
+    const images = watch('images')
+    const videos = watch('videos')
 
     const Map = useMemo(()=>dynamic(()=>import('../Map'),{
        ssr:false
@@ -85,6 +118,8 @@ const RentModal=()=>{
             return onNext();
         }
         setIsLoading(true);
+        console.log(data)
+        console.log("hii there")
         axios.post('/api/listing',data)
         .then(()=>{
             toast.success("Listings are successfully created.")
@@ -189,12 +224,47 @@ const RentModal=()=>{
             <div>
                <Heading 
                   title="Add a photo of your place"
-                  subtitle="Show guests how your place looks like!"
+                  subtitle="Show guests how your place looks like! "
                /> 
-               <UploadImage 
-                 value={imageSrc}
-                 onChange={(value)=>setCustomValue('imageSrc',value)}
-               />
+                <Form {...form} >
+                    <form onSubmit={form.handleSubmit(onSubmitForImagesAndVideos)} className="space-y-8 ">
+                    <FormField 
+                    control={form.control}
+                    name="sightImages"
+                    render={({field})=>(
+                            <FormItem>
+                                <FormLabel> Image</FormLabel>
+                                <FormControl className="w-64">
+                                
+                                <UploadImage 
+                                    value={field.value.map((image) => image.url)} 
+                                    onChange={(url) => field.onChange([...field.value, { url }])}
+                                />
+                                </FormControl>
+                                <FormMessage />   
+                            </FormItem>
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="sightVideos"
+                    render={({field})=>(
+                            <FormItem>
+                                <FormLabel> Video</FormLabel>
+                                <FormControl className="w-64">
+                                
+                                <UploadVideo 
+                                    value={field.value.map((video) => video.url)} 
+                                    onChange={(url) => field.onChange([...field.value, { url }])}
+                                />
+                                </FormControl>
+                                <FormMessage />   
+                            </FormItem>
+                    )}
+                    />
+                    <Button className="mt-6" type="submit" >click to confirm</Button>
+                    </form>
+                </Form>
             </div>
         )
     }

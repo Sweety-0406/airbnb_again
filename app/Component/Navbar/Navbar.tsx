@@ -5,14 +5,14 @@ import Logo from './Logo';
 import Search from './Search';
 import Usermenu from './Usermenu';
 import Categories from './Categories';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 interface NavbarProps {
     currentUser ?: SafeUser | null
 }
 const Navbar:React.FC<NavbarProps>=({currentUser})=>{
-    console.log(currentUser);
     const router = useRouter();
+    const params = useParams()
     
     return (
         <div 
@@ -23,7 +23,7 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
            border-b-2
            w-full
            gap-10
-           z-10
+           z-40
         ">
             <Container >
                 <div className="
@@ -41,6 +41,8 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
                 </div>                 
             </Container>
             <Categories />
+            {/* import { IoOptionsOutline } from "react-icons/io5";
+<IoOptionsOutline /> */}
         </div>
         
     )

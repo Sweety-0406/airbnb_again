@@ -57,10 +57,12 @@ const Search=()=>{
             <div className="flex flex-row justify-between items-center px-2">
                 <div
                  className="
-                  pr-4
+                  px-2
+                  sm:border-r-[1px]
                   text-md
                   font-semibold
                   hover:underline underline-offset-2
+                  truncate
                 ">
                     {locationHandler}
                 </div>
@@ -68,10 +70,12 @@ const Search=()=>{
                  className="
                   hidden
                   sm:block
-                  pr-4
+                  px-2
+                  border-r-[1px]
                   text-md
                   font-semibold
                   hover:underline underline-offset-2
+                  truncate
                 ">
                     {durationHandler} 
                 </div>
@@ -79,15 +83,17 @@ const Search=()=>{
                         <div className=" flex flex-row justify-between items-center">
                             <div
                             className="
-                            pr-4
+                            px-2
                             text-md
                             text-gray-600
+                            truncate
                             hover:underline underline-offset-2
-                            ">
+                            "
+                            >
                                 {guestHandler}
                             </div>
-                            <div className="bg-rose-500 rounded-full text-white w-7 h-7 text-center pt-1 pl-1">
-                            <BsSearch size={18}/>
+                            <div className="bg-rose-500 rounded-full text-white w-8 h-8 text-center pt-1 pl-1">
+                            <BsSearch size={15} className='mt-1 ml-1'/>
                             </div>
                         </div>                    
                    </div>

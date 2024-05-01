@@ -111,15 +111,18 @@ const ListingClient:React.FC<ListingClientProps> = ({
 
     return (
         <Container>
-            <div className="max-w-screen-lg max-auto mx-auto mt-44">
+            <div className="max-w-screen-lg max-auto mx-auto mt-16">
                 <div className="flex flex-col gap-6">
-                    <ListingHead 
-                     imageSrc={listing.imageSrc}
-                     title={listing.title}
-                     locationValue={listing.locationValue}
-                     currentUser={currentUser}
-                     listingId = {listing.id}
-                    />
+                    <div className="">
+                        <ListingHead 
+                        images={listing.images}
+                        videos={listing.videos}
+                        title={listing.title}
+                        locationValue={listing.locationValue}
+                        currentUser={currentUser}
+                        listingId = {listing.id}
+                        />
+                    </div>
                     <div className="
                      grid
                      grid-cols-1

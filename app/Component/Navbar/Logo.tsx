@@ -9,7 +9,7 @@ const Logo=()=>{
         router.push('/')
     },[router])
     return(
-        <div className="mx-3" onClick={mainPage}>
+        <div className="mx-3 cursor-pointer" onClick={mainPage}>
             <Image 
               width='50'
               height='50'

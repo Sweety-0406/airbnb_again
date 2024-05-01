@@ -86,6 +86,10 @@ export default async function getListings(params : IListingParams) {
 
     const listing = await prisma.listing.findMany({
       where:query,
+        include:{
+          images: true,
+          videos: true
+        },
         orderBy:{
             createdAt:'desc'
         },

@@ -34,6 +34,7 @@ const ListingResservation:React.FC<ListingReservationProps>=({
           rounded-lg
           overflow-hidden
           p-5
+          w-full
         ">
             <div className="font-semibold flex flex-row">
                 <div className="text-lg">
@@ -44,11 +45,13 @@ const ListingResservation:React.FC<ListingReservationProps>=({
                 </div>
             </div>
             <hr />
+            <div className="w-full">
             <Calendar 
               value={dateRange}
               disabledDates={disabledDates}
               onChange={(value)=>onChangeDate(value.selection)}
             />
+            </div>
             <hr />
             <div>
                 <div className="flex ">

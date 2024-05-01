@@ -46,7 +46,7 @@ const ResevationClient:React.FC<TripsClientProps> =  ({
         console.log(res.totalPrice)
     ))
     return(
-       <div className="mt-48">
+       <div className="mt-16">
          <Container>
             <Heading
                title="Reservations"

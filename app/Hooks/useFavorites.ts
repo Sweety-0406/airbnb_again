@@ -33,12 +33,13 @@ const useFavorite = ({
         let request;
         if(hasFavorite){
              request = () => axios.delete(`/api/favorites/${listingId}`)
+             toast.success('Successfully deleted from the wishlist.')
         }else{
-             request = () => axios.post(`/api/favorites/${listingId}`)
+            request = () => axios.post(`/api/favorites/${listingId}`)
+            toast.success('Successfully added to the wishlist.')
         }
         await request();
         router.refresh();
-        toast.success('Successful')
        } catch (error) {
         toast.error("Something went wrong...")
        }

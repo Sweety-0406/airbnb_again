@@ -42,7 +42,7 @@ const PropertiesClient:React.FC<TripsClientProps> =  ({
     )   
 
     return(
-       <div className="mt-48">
+       <div className="mt-16">
          <Container>
             <Heading
                title="Properties"

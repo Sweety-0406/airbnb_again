@@ -22,7 +22,13 @@ export default async function getReservation(params:IParams) {
         const reservations = await prisma.reservation.findMany({
              where:query,
              include:{
-                listing:true
+                listing:{
+                    include:{
+                        images: true,
+                        videos: true
+                    }
+                },
+                
              },
              orderBy:{
                 createdAt:'desc'

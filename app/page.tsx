@@ -21,8 +21,8 @@ const Home =async ({searchParams}:HomeProps) => {
     page = parseInt(searchParams.page,10)
   }
   let perPage = 10
-  const totalPages = Math.ceil(itemCount / perPage)-1;
-  console.log(totalPages)
+  const totalPages = Math.ceil(itemCount / perPage);
+
   const prevPage = page - 1 > 0 ? page - 1 : 1;
   const nextPage = page + 1;
   const isPageOutOfRange: boolean = page > totalPages;
@@ -121,3 +121,4 @@ const Home =async ({searchParams}:HomeProps) => {
 }
 
 export default Home;
+

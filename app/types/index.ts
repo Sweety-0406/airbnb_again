@@ -9,11 +9,23 @@ export type SafeUser = Omit<
     emailVerified  : string | null
 }
 
+export type SafeImage = {
+  id: string,
+  url: string,
+}
+
+export type SafeVideo = {
+  id: string,
+  url: string,
+}
+
 export type SafeListing = Omit<
  Listing,
  'createdAt'
 > & {
-  createdAt : string
+  createdAt : string;
+  images: SafeImage[];
+  videos: SafeVideo[];
 }
  
 export type SafeReservation = Omit<
@@ -23,5 +35,6 @@ export type SafeReservation = Omit<
   createdAt : string;
   startDate : string;
   endDate : string;
-  listing : SafeListing
+  listing : SafeListing;
 }
+

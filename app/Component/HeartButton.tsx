@@ -24,6 +24,10 @@ const HeartButton:React.FC<HeartButtonProps>=({
            cursor-pointer
            hover:opacity-70
            relative
+           pr-[420px]
+           sm:pr-[260px]
+           md:pr-[200px]
+           xl:pr-[260px]
         ">
             <AiOutlineHeart
               size={26}

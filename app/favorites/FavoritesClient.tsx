@@ -16,7 +16,7 @@ const FavoritesClient:React.FC<TripsClientProps> =  ({
     currentUser,
 }) =>{
     return(
-       <div className="mt-48">
+       <div className="mt-16">
          <Container>
             <Heading
                title="Favorites"

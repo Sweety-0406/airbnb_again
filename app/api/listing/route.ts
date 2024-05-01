@@ -16,11 +16,13 @@ export async function POST(resquest : Request) {
         price,
         location,
         category,
-        imageSrc,
+        images,
+        videos,
         title,
         description
 
     } = body;
+    console.log(body)
 
     const listing = await prisma.listing.create({
         data:{
@@ -30,10 +32,19 @@ export async function POST(resquest : Request) {
             price : parseInt(price,10),
             locationValue:location.value,
             category,
-            imageSrc,
             title,
             description ,
-            userId :currentUser.id
+            userId :currentUser.id,
+            images:{ 
+                createMany: {
+                    data: images.map((image: { url: string }) => ({ url: image.url })), 
+                }
+            },
+            videos: videos && videos.length > 0 ? {
+                createMany: {
+                    data: videos.map((video: { url: string }) => ({ url: video.url })),
+                }
+            } : undefined, 
         }
     })
 
