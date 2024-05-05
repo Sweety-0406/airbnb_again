@@ -1,0 +1,183 @@
+{
+    "Index" : {
+        "airbnb" : "Airbnb - kotisi"
+    },
+    "Search":{
+        "days":"päivää",
+        "anyWeek":"Mikä tahansa viikko",
+        "guests":"Vieraat",
+        "addGuest":"Lisää vieraat",
+        "anyWhere":"Missä tahansa"
+        
+    },
+    "Menubar":{
+        "trip": "Matkani",
+        "fav": "Suosikkini",
+        "reservation": "Varaukseni",
+        "property": "Omaisuuteni",
+        "logout": "Kirjaudu ulos",
+        "login": "Kirjaudu sisään",
+        "signup": "Rekisteröidy"
+    },
+    "trips":{
+        "title": "Ei löydettyjä matkoja!",
+        "subtitle": "Näyttää siltä, ettet ole varannut mitään matkoja.",
+        "tripTitle": "Matkat",
+        "tripSubtitle": "Missä olet käynyt ja minne olet menossa!"
+    },
+    "favs":{
+        "title": "Ei löydettyjä suosikkeja!",
+        "subtitle": "Näyttää siltä, ettet ole merkinnyt mitään suosikkeihin.",
+        "favTitle": "Suosikit",
+        "favSubtitle": "Lista paikoista, jotka olet merkinnyt suosikeiksi!"
+    },
+    "props":{
+        "title": "Ei löydettyjä ominaisuuksia!",
+        "subtitle": "Näyttää siltä, ettet ole vielä lisännyt omaisuuksia.",
+        "propTitle": "Ominaisuudet",
+        "propSubtitle": "Lista omaisuuksista!"
+    },
+    "reservs":{
+        "title": "Ei löydettyjä varauksia!",
+        "subtitle": "Näyttää siltä, että sinulla ei ole varauksia omaisuutesi.",
+        "reservTitle": "Varaukset",
+        "reservSubtitle": "Lista paikoista, joita olet varannut!"
+    },
+    "airbnbForm":{
+        "title": "Airbnb-kotiisi!"
+    },
+    "category":{
+        "title": "Kuinka parhaiten kuvailisit paikkaasi?",
+        "subTitle": "Valitse kategoria"
+    },
+    "location":{
+        "title": "Missä paikkasi sijaitsee?",
+        "subTitle": "Autathan vieraat löytämään sinut!",
+        "label": "Missä tahansa"
+    },
+    "info":{
+        "title": "Jaa joitakin perustietoja itsestäsi",
+        "subTitle": "Mitä mukavuuksia sinulla on?",
+        "guest": "Vieraat",
+        "GDes": "Kuinka monta vierasta sallit?",
+        "room": "Huoneet",
+        "RDes": "Kuinka monta huonetta sinulla on?",
+        "bathroom": "Kylpyhuoneet",
+        "BDes": "Kuinka monta kylpyhuonetta sinulla on?"
+    },
+    "photo":{
+        "title": "Lisää kuva paikastasi",
+        "subTitle": "Näytä vieraille, miltä paikkasi näyttää!",
+        "img": "Lataa kuva",
+        "vid": "Lataa video",
+        "confirm": "Klikkaa vahvistaaksesi"
+    },
+    "description":{
+        "title": "Kuinka kuvailisit paikkaasi?",
+        "subTitle": "Lyhyt ja ytimekäs toimii parhaiten!",
+        "tit": "Otsikko",
+        "des": "Kuvaus"
+    },
+    "price":{
+        "title": "Aseta hintasi nyt",
+        "subTitle": "Kuinka paljon veloitat yöltä?",
+        "amount": "Hinta"
+    },
+    "button":{
+        "back": "Takaisin",
+        "continue": "Jatka",
+        "submit": "Lähetä",
+        "search":"Haku",
+        "next":"Seuraava"
+    },
+    "page":{
+        "next":"Seuraava",
+        "prev":"Edellinen"
+    },
+    "loginPage":{
+        "head": "Kirjaudu sisään",
+        "title": "Tervetuloa takaisin Airbnb:lle",
+        "subTitle": "Kirjaudu sisään tilillesi",
+        "email": "Sähköposti",
+        "password": "Salasana",
+        "continue": "Jatka",
+        "google": "Jatka Googlella",
+        "github": "Jatka GitHubilla",
+        "newAcc": "Uusi Airbnb:ssä?",
+        "register": "Luo tili"
+    },
+    "registerPage":{
+        "head": "Rekisteröidy",
+        "title": "Tervetuloa Airbnb:lle",
+        "subTitle": "Luo tili",
+        "email": "Sähköposti",
+        "username": "Käyttäjänimi",
+        "password": "Salasana",
+        "continue": "Jatka",
+        "google": "Jatka Googlella",
+        "github": "Jatka GitHubilla",
+        "haveAcc": "Onko sinulla jo tili?",
+        "login": "Kirjaudu sisään"
+    },
+    "searchForm": {
+        "head": "Suodattimet",
+        "locationTitle": "Minne haluat mennä?",
+        "locationSubtitle": "Löydä täydellinen sijainti!",
+        "dateTitle": "Milloin suunnittelet lähteväsi?",
+        "dateSubtitle": "Varmista, että kaikki ovat vapaana!",
+        "infoTitle": "Lisätietoja",
+        "infoSubtitle": "Löydä täydellinen paikka",
+        "guest": "Vieraat",
+        "GDes": "Kuinka monta vierasta tulee?",
+        "room": "Huoneet",
+        "RDes": "Kuinka monta huonetta tarvitset?",
+        "bathroom": "Kylpyhuoneet",
+        "BDes": "Kuinka monta kylpyhuonetta tarvitset?"
+    },
+    "listingInfo": {
+        "placeDes": "Tietoja tästä tilasta",
+        "host": "Isännöi",
+        "guest": "vieraat",
+        "room": "huonetta",
+        "bathroom": "kylpyhuoneet",
+        "view": "Näytä koko",
+        "where": "Missä olet"
+    },
+    "listingReservation": {
+        "night": "yö",
+        "reserve": "Varaa",
+        "total": "Yhteensä"
+    },
+    "currencySign":{
+        "currency": "€"
+    },
+    "support":{
+        "title":"Tuki",
+        "help":"Apukeskus",
+        "safety":"Hanki apua turvallisuuskysymykseen",
+        "aircover":"AirCover",
+        "discimination":"Syrjinnän vastustaminen",
+        "disability":"Vammaisten tuki",
+        "cancel":"Perumisvaihtoehdot",
+        "report":"Ilmoita naapurusto-ongelmasta"
+    },
+    "hosting":{
+        "title":"Majoittaminen",
+        "home":"Majoita kotisi Airbnb:ssä",
+        "host":"AirCover isännille",
+        "resource":"Majoittumisresurssit",
+        "community":"Yhteisöfoorumi",
+        "responsibility":"Majoittamisvastuu",
+        "class":"Liity ilmaiselle Majoittamisen kurssille"
+    },
+    "airbnb":{
+        "title":"Airbnb",
+        "newsroom":"Uutishuone",
+        "feature":"Uudet ominaisuudet",
+        "career":"Uralla eteenpäin",
+        "discimination":"Syrjinnän vastustaminen",
+        "investor":"Sijoittajat",
+        "org":"Airbnb.org hätämajoitus"
+    }
+    
+}

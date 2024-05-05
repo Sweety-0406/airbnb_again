@@ -23,10 +23,10 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import UploadVideo from "../Inputs/UploadVideo";
+import { useTranslations } from "next-intl";
 
 
 enum STEPS{
@@ -48,6 +48,14 @@ const RentModal=()=>{
     const rentModal = useRentModal();
     const[steps,setSteps] = useState(STEPS.CATEGORY)
     const [isLoading,setIsLoading]=useState(false);
+    const a = useTranslations("airbnbForm")
+    const c = useTranslations("category")
+    const l = useTranslations("location")
+    const i = useTranslations("info")
+    const p = useTranslations("photo")
+    const d = useTranslations("description")
+    const pr = useTranslations("price")
+    const b  = useTranslations("button")
 
     const{
         register,
@@ -118,8 +126,6 @@ const RentModal=()=>{
             return onNext();
         }
         setIsLoading(true);
-        console.log(data)
-        console.log("hii there")
         axios.post('/api/listing',data)
         .then(()=>{
             toast.success("Listings are successfully created.")
@@ -140,8 +146,8 @@ const RentModal=()=>{
     var bodyContent = (
         <div>
             <Heading
-              title="Which of these best describes your place?"
-              subtitle="Pick a category"
+              title={c("title")}
+              subtitle={c("subTitle")}
             />
             <div className="
                grid
@@ -169,8 +175,8 @@ const RentModal=()=>{
         bodyContent=(
             <div className="flex flex-col gap-8  ">
                 <Heading
-                  title="Where is your place located?"
-                  subtitle="Help guests to find you!"
+                  title={l("title")}
+                  subtitle={l("subTitle")}
                 />
                 <div className="z-40">
                 <SelectCountry
@@ -191,26 +197,26 @@ const RentModal=()=>{
         bodyContent = (
             <div>
                 <Heading
-                 title="Share some basic info about you"
-                 subtitle="What amenities do you have ?"
+                 title={i("title")}
+                 subtitle={i("subTitle")}
                 />
                 <Counter 
-                  title="Guests"
-                  subtitle="How many guests do you allow?"
+                  title={i("guest")}
+                  subtitle={i("GDes")}
                   value={guestCount}
                   onChange={(value)=>setCustomValue('guestCount',value)}
                 />
                 <hr />
                 <Counter 
-                  title="Rooms"
-                  subtitle="How many rooms do you have?"
+                  title={i("room")}
+                  subtitle={i("RDes")}
                   value={roomCount}
                   onChange={(value)=>setCustomValue('roomCount',value)}
                 />
                 <hr />
                 <Counter 
-                  title="Bathrooms"
-                  subtitle="How many bathrooms do you have?"
+                  title={i("bathroom")}
+                  subtitle={i("BDes")}
                   value={bathroomCount}
                   onChange={(value)=>setCustomValue('bathroomCount',value)}
                 />
@@ -223,8 +229,8 @@ const RentModal=()=>{
         bodyContent = (
             <div>
                <Heading 
-                  title="Add a photo of your place"
-                  subtitle="Show guests how your place looks like! "
+                 title={p("title")}
+                 subtitle={p("subTitle")}
                /> 
                 <Form {...form} >
                     <form onSubmit={form.handleSubmit(onSubmitForImagesAndVideos)} className="space-y-8 ">
@@ -233,7 +239,6 @@ const RentModal=()=>{
                     name="sightImages"
                     render={({field})=>(
                             <FormItem>
-                                <FormLabel> Image</FormLabel>
                                 <FormControl className="w-64">
                                 
                                 <UploadImage 
@@ -250,7 +255,6 @@ const RentModal=()=>{
                     name="sightVideos"
                     render={({field})=>(
                             <FormItem>
-                                <FormLabel> Video</FormLabel>
                                 <FormControl className="w-64">
                                 
                                 <UploadVideo 
@@ -262,7 +266,7 @@ const RentModal=()=>{
                             </FormItem>
                     )}
                     />
-                    <Button className="mt-6" type="submit" >click to confirm</Button>
+                    <Button className="mt-6" type="submit" >{p("confirm")}</Button>
                     </form>
                 </Form>
             </div>
@@ -273,13 +277,13 @@ const RentModal=()=>{
         bodyContent = (
             <div className="flex flex-col">
                 <Heading 
-                  title="How would you describe your place?"
-                  subtitle="Short and sweet works best!"
+                  title={d("title")}
+                  subtitle={d("subTitle")}
                 />
                 <div className="mb-8">
                     <Input 
                     id="title"
-                    label="Title"
+                    label={d("tit")}
                     register={register}
                     errors={errors}
                     />
@@ -288,7 +292,7 @@ const RentModal=()=>{
                 <div className="mt-4">
                     <Input 
                     id="description"
-                    label="Description"
+                    label={d("des")}
                     register={register}
                     errors={errors}
                     />
@@ -301,13 +305,13 @@ const RentModal=()=>{
         bodyContent=(
             <div>
                 <Heading 
-                  title="Now, set your price"
-                  subtitle="How much do you charge per night?"
+                  title={pr("title")}
+                  subtitle={pr("subTitle")}
                 />
                 <div>
                     <Input
                       id="price"
-                      label="Price"
+                      label={pr("amount")}
                       register={register}
                       errors={errors}
                       type="number"
@@ -322,14 +326,14 @@ const RentModal=()=>{
     return (
         <div>
             <Modal 
-                title="Airbnb your home !"
+                title={a("title")}
                 isOpen={rentModal.isOpen}
                 onClose={rentModal.onClose}
                 onSubmit={handleSubmit(onSubmit)}
                 secondaryAction={steps === STEPS.CATEGORY ? undefined : onBack}
-                secondaryActionLabel={steps === STEPS.CATEGORY? undefined : 'Back'}
+                secondaryActionLabel={steps === STEPS.CATEGORY? undefined : b("back")}
                 body={bodyContent} 
-                actionLabel={steps === STEPS.PRICE ? 'Submit' : 'Continue'}            />
+                actionLabel={steps === STEPS.PRICE ? b("submit") : b("continue")}            />
         </div>
     )
 }

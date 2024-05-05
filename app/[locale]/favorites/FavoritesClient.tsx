@@ -1,9 +1,10 @@
 'use client'
 
-import Container from "../Component/Container"
-import Heading from "../Component/Heading"
-import ListingCard from "../Component/Listing/ListingCard"
-import { SafeListing, SafeUser } from "../types"
+import { useTranslations } from "next-intl"
+import Container from "../../Component/Container"
+import Heading from "../../Component/Heading"
+import ListingCard from "../../Component/Listing/ListingCard"
+import { SafeListing, SafeUser } from "../../types"
 
 
 interface TripsClientProps{
@@ -15,12 +16,13 @@ const FavoritesClient:React.FC<TripsClientProps> =  ({
     listings,
     currentUser,
 }) =>{
+    const t = useTranslations("favs")
     return(
        <div className="mt-16">
          <Container>
             <Heading
-               title="Favorites"
-               subtitle="list of places that you have favorited !"
+               title={t("favTitle")}
+               subtitle={t("favSubtitle")}
              />
              <div className="   
                 mt-10

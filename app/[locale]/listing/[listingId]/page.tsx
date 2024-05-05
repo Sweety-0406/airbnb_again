@@ -1,10 +1,7 @@
 import ClientOnly from "@/app/Component/ClientOnly";
-import Container from "@/app/Component/Container";
 import EmptyState from "@/app/Component/EmptyState";
 import getCurrentUser from "@/app/action/getCurrentUser";
 import getListingById from "@/app/action/getListingById";
-import { SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
 import ListingClient from "./ListingClient";
 import getReservation from "@/app/action/getReservations";
 import ListingFooterContent from "@/app/Component/Listing/listingFooterContent";

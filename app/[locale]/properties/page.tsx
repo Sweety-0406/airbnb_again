@@ -1,12 +1,14 @@
-import EmptyState from "../Component/EmptyState";
-import ClientOnly from "../Component/ClientOnly";
-import getCurrentUser from "../action/getCurrentUser";
-import Heading from "../Component/Heading";
-import getListings from "../action/getListings";
+import EmptyState from "../../Component/EmptyState";
+import ClientOnly from "../../Component/ClientOnly";
+import getCurrentUser from "../../action/getCurrentUser";
+import Heading from "../../Component/Heading";
+import getListings from "../../action/getListings";
 import PropertiesClient from "./PropertiesClient";
+import { getTranslations } from "next-intl/server";
 
 const PropertiesPage = async ()=>{
     const currentUser = await getCurrentUser()
+    const t = await getTranslations("props")
     if(!currentUser){
         console.log("no user found")
         return(
@@ -26,8 +28,8 @@ const PropertiesPage = async ()=>{
         return(
             <ClientOnly> 
                 <EmptyState
-                    title="No Properties Found!"
-                    subtitle="Looks like you no properties yet" 
+                    title={t("title")}
+                    subtitle={t("subtitle")} 
                 />
             </ClientOnly>   
         )

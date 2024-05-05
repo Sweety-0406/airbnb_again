@@ -1,0 +1,181 @@
+{
+    "Index" : {
+        "airbnb" : "Airbnb your home"
+    },
+    "Search":{
+        "days":"days",
+        "anyWeek":"Any Week",
+        "guests":"guests",
+        "addGuest":"Add Guests",
+        "anyWhere":"Anywhere"
+    },
+    "Menubar":{
+        "trip":"My trips",
+        "fav":"My Favourites",
+        "reservation":"My Reservation",
+        "property":"My Properties",
+        "logout":"Logout",
+        "login":"Login",
+        "signup":"SignUp"
+    },
+    "trips":{
+        "title":"No Trips Found!",
+        "subtitle":"Looks like you havent reserved any trips",
+        "tripTitle":"Trips",
+        "tripSubtitle":"Where you have been and where you are going !"
+    },
+    "favs":{
+        "title":"No Favourites Found!",
+        "subtitle":"Looks like you havent favrouted any vella.",
+        "favTitle":"Favorites",
+        "favSubtitle":"List of places that you have favorited !"
+    },
+    "props":{
+        "title":"No Properties Found!",
+        "subtitle":"Looks like you have no properties yet",
+        "propTitle":"Properties",
+        "propSubtitle":"List of properties!"
+    },
+    "reservs":{
+        "title":"No Reservation Found!",
+        "subtitle":"Seems like you have no resevation for your properties.",
+        "reservTitle":"Reservations",
+        "reservSubtitle":"List of places that you have reserved !"
+    },
+    "airbnbForm":{
+        "title":"Airbnb your home !"
+    },
+    "category":{
+        "title":"Which of these best describes your place?",
+        "subTitle":"Pick a category"
+    },
+    "location":{
+        "title":"Where is your place located?",
+        "subTitle":"Help guests to find you!",
+        "label":"Anywhere"
+    },
+    "info":{
+        "title":"Share some basic info about you",
+        "subTitle":"What amenities do you have ?",
+        "guest":"Guests",
+        "GDes":"How many guests do you allow?",
+        "room":"Rooms",
+        "RDes":"How many rooms do you have?",
+        "bathroom":"Bathrooms",
+        "BDes":"How many bathrooms do you have?"
+    },
+    "photo":{
+        "title":"Add a photo of your place",
+        "subTitle":"Show guests how your place looks like!",
+        "img":"Upload an image",
+        "vid":"Upload an video",
+        "confirm":"Click to confirm"
+    },
+    "description":{
+        "title":"How would you describe your place?",
+        "subTitle":"Short and sweet works best!",
+        "tit":"Title",
+        "des":"Description"
+    },
+    "price":{
+        "title":"Now, set your price",
+        "subTitle":"How much do you charge per night?",
+        "amount":"Price"
+    },
+    "button":{
+        "back":"Back",
+        "continue":"Continue",
+        "submit":"Submit",
+        "search":"Search",
+        "next":"Next"
+    },
+    "page":{
+        "next":"Next",
+        "prev":"Previous"
+    },
+    "loginPage":{
+        "head":"Login",
+        "title":"Welcome back to Airbnb",
+        "subTitle":"Login to your account",
+        "email":"Email",
+        "password":"Password",
+        "continue":"Continue",
+        "google":"Continue with google",
+        "github":"Continue with github",
+        "newAcc":"New to Airbnb?",
+        "register":"Create an account"
+    },
+    "registerPage":{
+        "head":"Register",
+        "title":"Welcome  to Airbnb",
+        "subTitle":"Create an account",
+        "email":"Email",
+        "username":"Username",
+        "password":"Password",
+        "continue":"Continue",
+        "google":"Continue with google",
+        "github":"Continue with github",
+        "haveAcc":"Already have an account?",
+        "login":"Log in"
+    },
+    "searchForm":{
+        "head":"Filters",
+        "locationTitle":"Where do you wanna go?",
+        "locationSubtitle":"Find the perfect location!",
+        "dateTitle":"When do you plan to go?",
+        "dateSubtitle":"Make sure everyone is free!",
+        "infoTitle":"More informations",
+        "infoSubtitle":"Find your perfect place",
+        "guest":"Guests",
+        "GDes":"How many guests are coming?",
+        "room":"Rooms",
+        "RDes":"How many rooms do you need?",
+        "bathroom":"Bathrooms",
+        "BDes":"How many bathrooms do you need?"
+    },
+    "listingInfo":{
+        "placeDes":"About this space",
+        "host":"Hosted By",
+        "guest":"guests",
+        "room":"rooms",
+        "bathroom":"bathrooms",
+        "view":"View Full",
+        "where":"Where you'll be"
+    },
+    "listingReservation":{
+        "night":"night",
+        "reserve":"Reserve",
+        "total":"Total"
+    },
+    "currencySign":{
+        "currency":"$"
+    },
+    "support":{
+        "title":"Support",
+        "help":"Help Centre",
+        "safety":"Get help with a safety issue",
+        "aircover":"AirCover",
+        "discimination":"Anti-discrimination",
+        "disability":"Disability support",
+        "cancel":"Cancellation options",
+        "report":"Report neighbourhood concern"
+    },
+    "hosting":{
+        "title":"Hosting",
+        "home":"Airbnb your home",
+        "host":"AirCover for Hosts",
+        "resource":"Hosting resources",
+        "community":"Community forum",
+        "responsibility":"Hosting responsibility",
+        "class":"Join a free Hosting class"
+    },
+    "airbnb":{
+        "title":"Airbnb",
+        "newsroom":"Newsroom",
+        "feature":"New fatures",
+        "career":"Careers",
+        "discimination":"Anti-discrimination",
+        "investor":"Investors",
+        "org":"Airbnb.org emergency stays"
+    }
+}

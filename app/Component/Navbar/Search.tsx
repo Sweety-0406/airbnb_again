@@ -6,6 +6,7 @@ import useCountries from '@/app/Hooks/useCountries';
 import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { differenceInDays } from 'date-fns';
+import { useTranslations } from 'next-intl';
 const Search=()=>{
     const searchModal = useSearchModal()
     const {getByValue} = useCountries()
@@ -15,10 +16,12 @@ const Search=()=>{
     const startDate = params?.get('startDate')
     const endDate = params?.get('endDate')
     const guestCount = params?.get('guestCount')
+    const t =  useTranslations("Search")
+
 
     const locationHandler = useMemo(()=>{
         if(!locationValue){
-            return "Anywhere"
+            return t("anyWhere")
         }
         return getByValue(locationValue as string)?.label
     },[locationValue,getByValue])
@@ -31,16 +34,16 @@ const Search=()=>{
             if(totalDays === 0){
                 totalDays = 1
             }
-            return `${totalDays} Days`
+            return `${totalDays} ${t("days")}`
         }
-        return "Any Week"
+        return t("anyWeek")
     },[startDate,endDate])
 
     const guestHandler = useMemo(()=>{
         if(guestCount){
-            return `${guestCount} Guests`
+            return `${guestCount} ${t("guests")}`
         }
-        return "Add guests"
+        return t("addGuest")
     },[guestCount])
 
     return(
@@ -49,8 +52,8 @@ const Search=()=>{
          className="
           border-[1px]
           rounded-full
-          py-[12px]
-          px-5
+          py-[8px]
+          px-2
           hover:shadow-md
           cursor-pointer
         ">
@@ -59,7 +62,7 @@ const Search=()=>{
                  className="
                   px-2
                   sm:border-r-[1px]
-                  text-md
+                  text-sm
                   font-semibold
                   hover:underline underline-offset-2
                   truncate
@@ -72,7 +75,7 @@ const Search=()=>{
                   sm:block
                   px-2
                   border-r-[1px]
-                  text-md
+                  text-sm
                   font-semibold
                   hover:underline underline-offset-2
                   truncate
@@ -84,7 +87,7 @@ const Search=()=>{
                             <div
                             className="
                             px-2
-                            text-md
+                            text-sm
                             text-gray-600
                             truncate
                             hover:underline underline-offset-2

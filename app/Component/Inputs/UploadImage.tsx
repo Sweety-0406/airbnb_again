@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { TbPhotoPlus } from 'react-icons/tb';
 import Image from 'next/image'
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 declare  global {
     var cloudinary :any
@@ -17,6 +18,7 @@ const UploadImage:React.FC<UploadImageProps>=({
     onChange
 })=>{
     const [isMounted, setIsMounted] = useState(false);
+    const t = useTranslations("photo")
 
     useEffect(() => {
       setIsMounted(true);
@@ -62,7 +64,7 @@ const UploadImage:React.FC<UploadImageProps>=({
                   onClick={onClick}
                 >
                   <TbPhotoPlus className="h-4 w-4 mr-2" />
-                  Upload an Image
+                  {t("img")}
                 </Button>
               );
             }}

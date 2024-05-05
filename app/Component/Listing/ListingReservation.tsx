@@ -3,6 +3,7 @@
 import {  Range } from "react-date-range";
 import Button from "../Button";
 import Calendar from "../Inputs/Calendar";
+import { useTranslations } from "next-intl";
 
 interface ListingReservationProps{
     totalPrice:number,
@@ -22,6 +23,8 @@ const ListingResservation:React.FC<ListingReservationProps>=({
     disabled,
     disabledDates
 })=>{
+    const t =  useTranslations("listingReservation")
+    const r =  useTranslations("currencySign")
     return (
         <div className="
          bg-white
@@ -38,10 +41,10 @@ const ListingResservation:React.FC<ListingReservationProps>=({
         ">
             <div className="font-semibold flex flex-row">
                 <div className="text-lg">
-                ${price}
+                {r("currency")}{price}
                 </div>
                 <div className="text-gray-600 text-sm pl-3 font-normal pt-1">
-                    night
+                {t("night")}
                 </div>
             </div>
             <hr />
@@ -57,16 +60,16 @@ const ListingResservation:React.FC<ListingReservationProps>=({
                 <div className="flex ">
                 <Button 
                 disabled={disabled}
-                 label="Reserve"
+                 label={t("reserve")}
                  onClick={onSubmit}
                 />
                 </div>
                 <div className="text-black text-lg font-semibold flex flex-row justify-between">
                     <div>
-                        Total
+                        {t("total")}
                     </div>
                     <div>
-                        ${totalPrice}
+                        {r("currency")}{totalPrice}
                     </div>
                 </div>
             </div>

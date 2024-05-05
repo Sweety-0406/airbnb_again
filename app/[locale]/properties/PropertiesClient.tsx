@@ -3,15 +3,16 @@
 'use client'
 
 import axios from "axios"
-import Button from "../Component/Button"
-import Container from "../Component/Container"
-import Heading from "../Component/Heading"
-import ListingCard from "../Component/Listing/ListingCard"
-import { SafeListing, SafeReservation, SafeUser } from "../types"
+import Button from "../../Component/Button"
+import Container from "../../Component/Container"
+import Heading from "../../Component/Heading"
+import ListingCard from "../../Component/Listing/ListingCard"
+import { SafeListing, SafeReservation, SafeUser } from "../../types"
 import toast from "react-hot-toast"
 import { Router } from "next/router"
 import { useRouter } from "next/navigation"
 import { useCallback, useState } from "react"
+import { useTranslations } from "next-intl"
 
 
 interface TripsClientProps{
@@ -25,6 +26,8 @@ const PropertiesClient:React.FC<TripsClientProps> =  ({
 }) =>{
     const[deletingId,setDeletingId] = useState('')
     const router = useRouter()
+    const t = useTranslations("props")
+
     const cancelHandler = useCallback((id : string)=>{
         setDeletingId(id)
             axios.delete(`/api/listing/${id}`)
@@ -45,8 +48,8 @@ const PropertiesClient:React.FC<TripsClientProps> =  ({
        <div className="mt-16">
          <Container>
             <Heading
-               title="Properties"
-               subtitle="List of properties!"
+               title={t("propTitle")}
+               subtitle={t("propSubtitle")}
              />
              <div className="   
                 mt-10

@@ -41,8 +41,6 @@ const Navbar:React.FC<NavbarProps>=({currentUser})=>{
                 </div>                 
             </Container>
             <Categories />
-            {/* import { IoOptionsOutline } from "react-icons/io5";
-<IoOptionsOutline /> */}
         </div>
         
     )

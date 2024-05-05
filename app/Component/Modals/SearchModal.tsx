@@ -12,6 +12,7 @@ import { formatISO } from 'date-fns';
 import Heading from '../Heading';
 import Calendar from '../Inputs/Calendar';
 import Counter from '../Inputs/Counter';
+import { useTranslations } from 'next-intl';
 
 enum STEPS{
     LOCATION = 0,
@@ -33,6 +34,8 @@ const SearchModal = ()=>{
         endDate : new Date(),
         key : 'selection'
     })
+    const t = useTranslations("searchForm")
+    const b = useTranslations("button")    
 
     const Map = useMemo(()=>dynamic(()=>import('../Map'), {
         ssr : false,
@@ -100,16 +103,16 @@ const SearchModal = ()=>{
 
     const actionLabel = useMemo(()=>{
         if(step === STEPS.INFO){
-            return 'Search';
+            return b("search");
         }
-        return 'Next'
+        return  b("next")
     },[step]);
 
     const secondaryActionLabel = useMemo(()=>{
         if(step === STEPS.LOCATION){
             return undefined;
         }
-        return 'Back';
+        return  b("back");
     },[step])
 
     let bodyContent =(
@@ -119,8 +122,8 @@ const SearchModal = ()=>{
          gap-8
        '>
         <Heading 
-          title="Where do you wanna go?"
-          subtitle="Find the perfect location!"
+          title={t("locationTitle")}
+          subtitle={t("locationSubtitle")}
         />
         <div className='z-50'>
             <SelectCountry 
@@ -143,8 +146,8 @@ const SearchModal = ()=>{
         bodyContent = (
             <div className='flex flex-col gap-8'>
                 <Heading 
-                  title="When do you plan to go?"
-                  subtitle='Make sure everyone is free!'
+                  title={t("dataTitle")}
+                  subtitle={t("dataSubtitle")}
                 />
                 <Calendar 
                   value={dateRange}
@@ -158,24 +161,24 @@ const SearchModal = ()=>{
         bodyContent = (
             <div className='flex flex-col gap-8'>
                 <Heading 
-                  title="More informations"
-                  subtitle='Find your perfect place'
+                  title={t("infoTitle")}
+                  subtitle={t("infoSubtitle")}
                 />
                 <Counter 
-                  title='Guests'
-                  subtitle='How many guests are coming?'
+                  title={t("guest")}
+                  subtitle={t("GDes")}
                   value={guestCount}
                   onChange={(value)=>setGuestCount(value)}
                 />
                 <Counter 
-                  title='Rooms'
-                  subtitle='How many rooms do you need?'
+                  title={t("room")}
+                  subtitle={t("RDes")}
                   value={roomCount}
                   onChange={(value)=>setRoomCount(value)}
                 />
                 <Counter 
-                  title='Bathrooms'
-                  subtitle='How many bathrooms do you need?'
+                  title={t("bathroom")}
+                  subtitle={t("BDes")}
                   value={bathroomCount}
                   onChange={(value)=>setBathroomCount(value)}
                 />
@@ -188,7 +191,7 @@ const SearchModal = ()=>{
           isOpen={searchModal.isOpen}
           onClose={searchModal.onClose}
           onSubmit={onSubmit}
-          title = "Filters"
+          title = {t("head")}
           actionLabel={actionLabel}
           secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
           secondaryActionLabel={secondaryActionLabel}

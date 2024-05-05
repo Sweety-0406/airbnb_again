@@ -1,4 +1,4 @@
-import Loader from "./Component/Loader";
+import Loader from "../Component/Loader";
 
 
 const LoadingPage = () => {

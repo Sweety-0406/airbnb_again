@@ -1,0 +1,181 @@
+{
+    "Index": {
+        "airbnb": "Airbnb 당신의 집"
+    },
+    "Search": {
+        "days": "일",
+        "anyWeek": "아무 주",
+        "guests": "손님",
+        "addGuest": "손님 추가",
+        "anyWhere": "어디서나"
+    },
+    "Menubar": {
+        "trip": "내 여행",
+        "fav": "내 즐겨찾기",
+        "reservation": "내 예약",
+        "property": "내 속성",
+        "logout": "로그 아웃",
+        "login": "로그인",
+        "signup": "가입"
+    },
+    "trips": {
+        "title": "여행을 찾을 수 없습니다!",
+        "subtitle": "예약된 여행이 없는 것 같습니다.",
+        "tripTitle": "여행",
+        "tripSubtitle": "여행한 곳과 가려는 곳을 살펴보세요!"
+    },
+    "favs": {
+        "title": "즐겨찾기를 찾을 수 없습니다!",
+        "subtitle": "즐겨찾기한 장소가 없는 것 같습니다.",
+        "favTitle": "즐겨찾기",
+        "favSubtitle": "즐겨찾기한 장소 목록!"
+    },
+    "props": {
+        "title": "속성을 찾을 수 없습니다!",
+        "subtitle": "아직 속성이 없는 것 같습니다.",
+        "propTitle": "속성",
+        "propSubtitle": "속성 목록!"
+    },
+    "reservs": {
+        "title": "예약을 찾을 수 없습니다!",
+        "subtitle": "속성에 대한 예약이 없는 것 같습니다.",
+        "reservTitle": "예약",
+        "reservSubtitle": "예약한 장소 목록!"
+    },
+    "airbnbForm": {
+        "title": "Airbnb 당신의 집!"
+    },
+    "category": {
+        "title": "다음 중 어느 것이 가장 장소를 잘 설명합니까?",
+        "subTitle": "카테고리 선택"
+    },
+    "location": {
+        "title": "당신의 장소는 어디에 있습니까?",
+        "subTitle": "손님이 당신을 찾을 수 있도록 도와주세요!",
+        "label": "어디서나"
+    },
+    "info": {
+        "title": "당신에 대한 몇 가지 기본 정보를 공유하세요",
+        "subTitle": "어떤 편의 시설이 있습니까?",
+        "guest": "손님",
+        "GDes": "얼마나 많은 손님을 허용하십니까?",
+        "room": "방",
+        "RDes": "몇 개의 방이 있습니까?",
+        "bathroom": "욕실",
+        "BDes": "얼마나 많은 욕실이 있습니까?"
+    },
+    "photo": {
+        "title": "당신의 장소의 사진을 추가하세요",
+        "subTitle": "손님들에게 당신의 장소가 어떻게 보이는지 보여주세요!",
+        "img": "이미지 업로드",
+        "vid": "비디오 업로드",
+        "confirm": "확인하려면 클릭"
+    },
+    "description": {
+        "title": "당신의 장소를 어떻게 설명하시겠습니까?",
+        "subTitle": "간결하고 명료한 설명이 가장 좋습니다!",
+        "tit": "제목",
+        "des": "설명"
+    },
+    "price": {
+        "title": "이제 가격을 설정하세요",
+        "subTitle": "하룻밤에 얼마나 청구하시겠습니까?",
+        "amount": "가격"
+    },
+    "button": {
+        "back": "뒤로",
+        "continue": "계속",
+        "submit": "제출",
+        "search": "검색",
+        "next": "다음"
+    },
+    "page": {
+        "next": "다음",
+        "prev": "이전"
+    },
+    "loginPage": {
+        "head": "로그인",
+        "title": "Airbnb에 다시 오신 것을 환영합니다",
+        "subTitle": "귀하의 계정으로 로그인하세요",
+        "email": "이메일",
+        "password": "비밀번호",
+        "continue": "계속",
+        "google": "Google로 계속",
+        "github": "GitHub으로 계속",
+        "newAcc": "Airbnb 처음이세요?",
+        "register": "계정 만들기"
+    },
+    "registerPage": {
+        "head": "등록",
+        "title": "Airbnb에 오신 것을 환영합니다",
+        "subTitle": "계정을 생성하세요",
+        "email": "이메일",
+        "username": "사용자 이름",
+        "password": "비밀번호",
+        "continue": "계속",
+        "google": "Google로 계속",
+        "github": "GitHub으로 계속",
+        "haveAcc": "이미 계정이 있습니까?",
+        "login": "로그인"
+    },
+    "searchForm": {
+        "head": "필터",
+        "locationTitle": "어디로 가고 싶으세요?",
+        "locationSubtitle": "완벽한 위치를 찾아보세요!",
+        "dateTitle": "언제 가기를 계획하고 있습니까?",
+        "dateSubtitle": "모두가 여유가 있는지 확인하세요!",
+        "infoTitle": "추가 정보",
+        "infoSubtitle": "당신의 완벽한 장소를 찾으세요",
+        "guest": "손님",
+        "GDes": "얼마나 많은 손님이 오시나요?",
+        "room": "방",
+        "RDes": "몇 개의 방이 필요하십니까?",
+        "bathroom": "욕실",
+        "BDes": "몇 개의 욕실이 필요하십니까?"
+    },
+    "listingInfo": {
+        "placeDes": "이 공간에 대해",
+        "host": "호스트",
+        "guest": "손님",
+        "room": "방",
+        "bathroom": "욕실",
+        "view": "전체 보기",
+        "where": "어디에 있을 예정인가요"
+    },
+    "listingReservation": {
+        "night": "밤",
+        "reserve": "예약",
+        "total": "합계"
+    },
+    "currencySign": {
+        "currency": "$"
+    },
+    "support": {
+        "title": "지원",
+        "help": "도움말 센터",
+        "safety": "안전 문제에 대한 도움말 받기",
+        "aircover": "AirCover",
+        "discimination": "차별금지",
+        "disability": "장애인 지원",
+        "cancel": "취소 옵션",
+        "report": "지역 문제 신고"
+    },
+    "hosting": {
+        "title": "호스팅",
+        "home": "Airbnb 당신의 집",
+        "host": "호스트를 위한 AirCover",
+        "resource": "호스팅 자원",
+        "community": "커뮤니티 포럼",
+        "responsibility": "호스팅 책임",
+        "class": "무료 호스팅 수업 참여"
+    },
+    "airbnb": {
+        "title": "Airbnb",
+        "newsroom": "뉴스 룸",
+        "feature": "새로운 기능",
+        "career": "경력",
+        "discimination": "차별 금지",
+        "investor": "투자자",
+        "org": "Airbnb.org 비상 주거"
+    }
+}

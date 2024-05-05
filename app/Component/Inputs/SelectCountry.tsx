@@ -1,6 +1,7 @@
 'use client';
 
 import useCountries from '@/app/Hooks/useCountries';
+import { useTranslations } from 'next-intl';
 import Select from 'react-select'
 
 export type  CountrySelectValue={
@@ -21,11 +22,12 @@ const SelectCountry:React.FC<SelectCountryProps>=({
     onChange
 })=>{
     const {getAll} = useCountries();
+    const t = useTranslations("location")
  
     return (
         <div className='z-50'>
             <Select 
-              placeholder='Anywhere'
+              placeholder={t("label")}
               options={getAll()}
               isClearable
               value={value}

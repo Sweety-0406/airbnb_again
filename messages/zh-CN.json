@@ -1,0 +1,181 @@
+{
+    "Index": {
+        "airbnb": "Airbnb您的家"
+    },
+    "Search": {
+        "days": "天",
+        "anyWeek": "任何一周",
+        "guests": "客人",
+        "addGuest": "添加客人",
+        "anyWhere": "任何地方"
+    },
+    "Menubar": {
+        "trip": "我的行程",
+        "fav": "我的收藏",
+        "reservation": "我的预订",
+        "property": "我的房源",
+        "logout": "退出",
+        "login": "登录",
+        "signup": "注册"
+    },
+    "trips": {
+        "title": "未找到行程！",
+        "subtitle": "看起来您还没有预订任何行程",
+        "tripTitle": "行程",
+        "tripSubtitle": "您去过哪里，将要去哪里！"
+    },
+    "favs": {
+        "title": "未找到收藏！",
+        "subtitle": "看起来您还没有收藏任何地方。",
+        "favTitle": "收藏",
+        "favSubtitle": "您收藏的地方列表！"
+    },
+    "props": {
+        "title": "未找到房源！",
+        "subtitle": "看起来您还没有房源",
+        "propTitle": "房源",
+        "propSubtitle": "房源列表！"
+    },
+    "reservs": {
+        "title": "未找到预订！",
+        "subtitle": "看起来您没有为您的房源预订。",
+        "reservTitle": "预订",
+        "reservSubtitle": "您预订的地方列表！"
+    },
+    "airbnbForm": {
+        "title": "Airbnb您的家！"
+    },
+    "category": {
+        "title": "这些中哪个最能描述您的地方？",
+        "subTitle": "选择一个类别"
+    },
+    "location": {
+        "title": "您的地方在哪里？",
+        "subTitle": "帮助客人找到您！",
+        "label": "任何地方"
+    },
+    "info": {
+        "title": "分享一些关于您的基本信息",
+        "subTitle": "您有什么便利设施？",
+        "guest": "客人",
+        "GDes": "您允许多少客人？",
+        "room": "房间",
+        "RDes": "您有多少间房？",
+        "bathroom": "浴室",
+        "BDes": "您有多少间浴室？"
+    },
+    "photo": {
+        "title": "添加您房源的照片",
+        "subTitle": "向客人展示您的房源外观！",
+        "img": "上传图片",
+        "vid": "上传视频",
+        "confirm": "点击确认"
+    },
+    "description": {
+        "title": "您如何描述您的地方？",
+        "subTitle": "简洁明了最好！",
+        "tit": "标题",
+        "des": "描述"
+    },
+    "price": {
+        "title": "现在，设置您的价格",
+        "subTitle": "您每晚收费多少？",
+        "amount": "价格"
+    },
+    "button": {
+        "back": "返回",
+        "continue": "继续",
+        "submit": "提交",
+        "search": "搜索",
+        "next": "下一步"
+    },
+    "page": {
+        "next": "下一页",
+        "prev": "上一页"
+    },
+    "loginPage": {
+        "head": "登录",
+        "title": "欢迎回到Airbnb",
+        "subTitle": "登录到您的帐户",
+        "email": "电子邮件",
+        "password": "密码",
+        "continue": "继续",
+        "google": "使用Google继续",
+        "github": "使用GitHub继续",
+        "newAcc": "是Airbnb的新用户吗？",
+        "register": "创建一个帐户"
+    },
+    "registerPage": {
+        "head": "注册",
+        "title": "欢迎来到Airbnb",
+        "subTitle": "创建一个帐户",
+        "email": "电子邮件",
+        "username": "用户名",
+        "password": "密码",
+        "continue": "继续",
+        "google": "使用Google继续",
+        "github": "使用GitHub继续",
+        "haveAcc": "已经有帐户了吗？",
+        "login": "登录"
+    },
+    "searchForm": {
+        "head": "筛选器",
+        "locationTitle": "您想去哪里？",
+        "locationSubtitle": "找到完美的地点！",
+        "dateTitle": "您计划什么时候去？",
+        "dateSubtitle": "确保每个人都有空！",
+        "infoTitle": "更多信息",
+        "infoSubtitle": "找到您完美的地方",
+        "guest": "客人",
+        "GDes": "有多少客人要来？",
+        "room": "房间",
+        "RDes": "您需要多少间房？",
+        "bathroom": "浴室",
+        "BDes": "您需要多少个浴室？"
+    },
+    "listingInfo": {
+        "placeDes": "关于这个空间",
+        "host": "主持人",
+        "guest": "客人",
+        "room": "房间",
+        "bathroom": "浴室",
+        "view": "查看全部",
+        "where": "您将在哪里"
+    },
+    "listingReservation": {
+        "night": "晚",
+        "reserve": "预订",
+        "total": "总计"
+    },
+    "currencySign": {
+        "currency": "$"
+    },
+    "support": {
+        "title": "支持",
+        "help": "帮助中心",
+        "safety": "获取有关安全问题的帮助",
+        "aircover": "AirCover",
+        "discimination": "反歧视",
+        "disability": "残疾支持",
+        "cancel": "取消选项",
+        "report": "报告社区问题"
+    },
+    "hosting": {
+        "title": "主持",
+        "home": "在Airbnb上出租您的家",
+        "host": "主持人AirCover",
+        "resource": "主持资源",
+        "community": "社区论坛",
+        "responsibility": "主持责任",
+        "class": "参加免费的主持班"
+    },
+    "airbnb": {
+        "title": "Airbnb",
+        "newsroom": "新闻室",
+        "feature": "新功能",
+        "career": "职业",
+        "discimination": "反歧视",
+        "investor": "投资者",
+        "org": "Airbnb.org 紧急住宿"
+    }
+}

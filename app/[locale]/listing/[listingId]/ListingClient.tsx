@@ -1,13 +1,13 @@
 'use client';
 
 import { Reservation } from "@prisma/client";
-import { SafeListing, SafeReservation, SafeUser } from "../../types";
-import Container from "../../Component/Container";
-import useCountries from "../../Hooks/useCountries";
-import ListingHead from "../../Component/Listing/ListingHead";
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
+import Container from "@/app/Component/Container";
+import useCountries from "@/app/Hooks/useCountries";
+import ListingHead from "@/app/Component/Listing/ListingHead";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { categories } from "../../Component/Navbar/Categories";
-import ListingInfo from "../../Component/Listing/ListingInfo";
+import { categories } from "@/app/Component/Navbar/Categories"; 
+import ListingInfo from "@/app/Component/Listing/ListingInfo";
 import ListingReservation from "@/app/Component/Listing/ListingReservation";
 import useLoginModal from "@/app/Hooks/useLoginModal";
 import { useRouter } from "next/navigation";

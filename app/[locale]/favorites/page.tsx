@@ -1,10 +1,11 @@
-import EmptyState from "../Component/EmptyState";
-import ClientOnly from "../Component/ClientOnly";
-import getCurrentUser from "../action/getCurrentUser";
-import getReservation from "../action/getReservations";
+import EmptyState from "../../Component/EmptyState";
+import ClientOnly from "../../Component/ClientOnly";
+import getCurrentUser from "../../action/getCurrentUser";
+import getReservation from "../../action/getReservations";
 import FavoritesClient from "./FavoritesClient";
-import Heading from "../Component/Heading";
-import getFavoriteListing from "../action/getFavoriteListing";
+import Heading from "../../Component/Heading";
+import getFavoriteListing from "../../action/getFavoriteListing";
+import { getTranslations } from "next-intl/server";
 
 const FavoritePage = async ()=>{
     const currentUser = await getCurrentUser()
@@ -20,13 +21,14 @@ const FavoritePage = async ()=>{
         )
     }
     const listing = await getFavoriteListing() 
+    const t = await getTranslations("favs")
 
     if(listing.length == 0){
         return(
             <ClientOnly>
                 <EmptyState
-                    title="No Favourites Found!"
-                    subtitle="Looks like you havent reserved any trips" 
+                    title={t("title")}
+                    subtitle={t("subtitle")} 
                 />
             </ClientOnly>
             

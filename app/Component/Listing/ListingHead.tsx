@@ -121,22 +121,3 @@ const ListingHead:React.FC<ListingHeadProps> = ({
 export default ListingHead
 
 
-
-            {/* <div className="
-             w-full
-             h-[65vh]
-             overflow-hidden
-             rounded-xl
-             relative
-            ">
-                <Image 
-                    fill
-                    alt="airbnb image"
-                    src={imageSrc}
-                    className="object-cover w-full"
-                />   
-                <HeartButton
-                  listingId={listingId} 
-                  currentUser={currentUser}
-                />             
-            </div> */}

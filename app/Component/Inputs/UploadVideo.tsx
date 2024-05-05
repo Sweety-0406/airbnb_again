@@ -3,6 +3,7 @@ import {CldUploadWidget} from 'next-cloudinary';
 import { useCallback, useEffect, useState } from 'react';
 import { TbPhotoPlus } from 'react-icons/tb';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 declare  global {
     var cloudinary :any
@@ -16,6 +17,7 @@ const UploadVideo:React.FC<UploadVideoProps>=({
     onChange
 })=>{
     const [isMounted, setIsMounted] = useState(false);
+    const t = useTranslations("photo")
 
     useEffect(() => {
       setIsMounted(true);
@@ -64,7 +66,7 @@ const UploadVideo:React.FC<UploadVideoProps>=({
                   onClick={onClick}
                 >
                   <TbPhotoPlus className="h-4 w-4 mr-2" />
-                  Upload an video
+                  {t("vid")}
                 </Button>
               );
             }}

@@ -15,6 +15,7 @@ import {
   } from "@/components/ui/dialog"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 
 const Map = dynamic(()=> import('../Map'))
@@ -42,6 +43,7 @@ const ListingInfo:React.FC<ListingInfo> = ({
 }) => {
     const {getByValue} = useCountries();
     const [isOpen, setIsOpen]=useState(false)
+    const t =  useTranslations("listingInfo")
     const coordinates = getByValue(locationValue)?.latlng
     return(
         <div>
@@ -49,7 +51,7 @@ const ListingInfo:React.FC<ListingInfo> = ({
                 <Dialog open={isOpen} onOpenChange={()=>setIsOpen(false)}>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle className="mb-4">About this space</DialogTitle>
+                    <DialogTitle className="mb-4">{t("placeDes")}</DialogTitle>
                     <DialogDescription>
                       {description}
                     </DialogDescription>
@@ -65,7 +67,7 @@ const ListingInfo:React.FC<ListingInfo> = ({
             ">
             <div className="flex  flex-col gap-3">
                 <div className="flex flex-row gap-3">
-                    <div className="text-xl font-bold">Hosted By</div>
+                    <div className="text-xl font-bold">{t("host")}</div>
                     <div className="pt-1">
                         <Avatar
                         src={user.image}
@@ -73,9 +75,9 @@ const ListingInfo:React.FC<ListingInfo> = ({
                     </div>
                 </div>
                 <div className="flex flex-row gap-2 text-slate-600">
-                    <div>{`${guestCount} guest`}</div>
-                    <div>{`${roomCount} rooms`}</div>
-                    <div>{`${bathroomCount} bathrooms`}</div>
+                    <div>{`${guestCount} ${t("guest")}`}</div>
+                    <div>{`${roomCount} ${t("room")}`}</div>
+                    <div>{`${bathroomCount} ${t("bathroom")}`}</div>
                 </div>
             </div>
             <hr />
@@ -93,12 +95,12 @@ const ListingInfo:React.FC<ListingInfo> = ({
                {description}
             </div>
             <div>
-                <Button className="bg-rose-500 hover:bg-rose-500 hover:opacity-50" onClick={()=>setIsOpen(true)}>View Full</Button>
+                <Button className="bg-rose-500 hover:bg-rose-500 hover:opacity-50" onClick={()=>setIsOpen(true)}>{t("view")}</Button>
             </div>
             <hr />
                 <div className="z-0">
                     <div className="font-bold text-lg mb-4">
-                        Where you'll be
+                        {t("where")}
                     </div>
                     <Map 
                 center={coordinates}

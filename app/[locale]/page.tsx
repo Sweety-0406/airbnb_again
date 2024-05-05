@@ -1,12 +1,14 @@
-import ClientOnly from "./Component/ClientOnly"
-import Container from "./Component/Container"
-import ListingCard from "./Component/Listing/ListingCard";
-import EmptyState from "./Component/EmptyState";
-import getCurrentUser from "./action/getCurrentUser";
-import  getListings, { IListingParams }  from "./action/getListings";
-import { itemCount } from "./action/getListings";
-import Heading from "./Component/Heading";
+import ClientOnly from "../Component/ClientOnly"
+import Container from "../Component/Container"
+import ListingCard from "../Component/Listing/ListingCard";
+import EmptyState from "../Component/EmptyState";
+import getCurrentUser from "../action/getCurrentUser";
+import  getListings, { IListingParams }  from "../action/getListings";
+import { itemCount } from "../action/getListings";
+import Heading from "../Component/Heading";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+
 
 interface HomeProps{
   searchParams : IListingParams
@@ -15,6 +17,8 @@ interface HomeProps{
 const Home =async ({searchParams}:HomeProps) => {
   const listings =await getListings(searchParams);
   const currentUser = await getCurrentUser();
+  const t = await getTranslations("page")
+
 
   let page = 1
   if(searchParams.page){
@@ -48,7 +52,7 @@ const Home =async ({searchParams}:HomeProps) => {
       <ClientOnly>
         <Container>
           <div className="
-           mt-44
+           mt-20
            grid
            grid-cols-1
            sm:grid-cols-2
@@ -71,7 +75,7 @@ const Home =async ({searchParams}:HomeProps) => {
               <Heading
                title="No more pages"
                subtitle="There is no more page to show you"
-               />
+              />
             </div> 
           ) : (
             <div>
@@ -79,11 +83,11 @@ const Home =async ({searchParams}:HomeProps) => {
                   <div className="flex border-[1px] gap-4 rounded-[10px] border-rose-300 p-4">
                     {page === 1 ? (
                       <div className="opacity-60 pt-1" aria-disabled="true">
-                        Previous
+                        {t("prev")}
                       </div>
                     ) : (
                       <Link href={`?page=${prevPage}`} aria-label="Previous Page" className="hover:bg-rose-200 rounded-xl p-1 font-bold">
-                        Previous
+                        {t("prev")}
                       </Link>
                     )}
 
@@ -103,11 +107,11 @@ const Home =async ({searchParams}:HomeProps) => {
 
                     {page === totalPages ? (
                       <div className="opacity-60 pt-1" aria-disabled="true">
-                        Next
+                        {t("next")}
                       </div>
                     ) : (
                       <Link href={`?page=${nextPage}`} aria-label="Next Page" className="hover:bg-rose-200 rounded-xl p-1 font-bold">
-                        Next
+                        {t("next")}
                       </Link>
                     )}
                   </div>

@@ -14,12 +14,14 @@ import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import useRegisterModal from "@/app/Hooks/useRegisterModal";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const LoginModal = () => {
     const router = useRouter();
     const loginModal = useLoginModal();
     const registerModal = useRegisterModal();
     const [isLoading,setIsLoading]=useState(false);
+    const t = useTranslations("loginPage")
 
     const{
         register,
@@ -60,12 +62,12 @@ const LoginModal = () => {
     const bodyContent = (
         <div>
             <Heading
-              title="Welcome back to Airbnb"
-              subtitle="Login to your account"
+              title={t("title")}
+              subtitle={t("subTitle")}
              />
              <Input 
                id="email"
-               label="Email"
+               label={t("email")}
                type={"text"}
                register={register}
                errors={errors}
@@ -73,7 +75,7 @@ const LoginModal = () => {
              /> 
              <Input 
                id="password"
-               label="Password"
+               label={t("password")}
                type={"password"}
                register={register}
                errors={errors}
@@ -89,23 +91,23 @@ const LoginModal = () => {
                 <Button 
                  icon={FcGoogle}
                  outline
-                 label="Continue with google"
+                 label={t("google")}
                  onClick={()=>signIn("google")}
                 />
                 <Button 
                  icon={AiFillGithub}
                  outline
-                 label="Continue with github"
+                 label={t("github")}
                  onClick={()=>signIn('github')}
                 />
             </div>
             <div className="flex flex-row justify-center ">
-                <div className="pr-2 text-gray-500">New to Airbnb? </div>
+                <div className="pr-2 text-gray-500">{t("newAcc")} </div>
                 <div 
                  onClick={toggle}
                  className="cursor-pointer hover:underline underline-offset-1"
                 >
-                    Create an account
+                    {t("register")}
                 </div>
             </div>
         </div>
@@ -114,8 +116,8 @@ const LoginModal = () => {
     return(
         <div>
             <Modal
-              title="Login"
-              actionLabel={"Continue"}
+              title={t("head")}
+              actionLabel={t("continue")}
               isOpen={loginModal.isOpen}
               onClose={loginModal.onClose}
               onSubmit={handleSubmit(onSubmit)}

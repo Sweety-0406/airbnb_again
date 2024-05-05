@@ -10,6 +10,20 @@ import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
 import useRentModal from '@/app/Hooks/useRentModal';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { IoIosGlobe } from "react-icons/io";
+import {createSharedPathnamesNavigation} from 'next-intl/navigation';
+import {
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
+  
+
 
 interface UsermenuProps{
     currentUser? : SafeUser | null;
@@ -20,6 +34,7 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
     const [isOpen,setIsOpen] = useState(false);
+    const {Link} = createSharedPathnamesNavigation()
 
     const toggleIsOpen = useCallback(()=>{
         setIsOpen((value)=>!value)
@@ -51,6 +66,8 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
          rentModal.onOpen();
     },[currentUser,loginModal,rentModal])
     
+    const t =  useTranslations("Index")
+    const s = useTranslations("Menubar")
 
     return(
         <div className='relative'>
@@ -75,7 +92,31 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                 truncate
                 ">
                    
-                    Airbnb your home
+                    {t("airbnb")}
+                </div>
+                <div>
+                <Menubar>
+                <MenubarMenu>
+                    <MenubarTrigger><IoIosGlobe size={25} className='cursor-pointer'/></MenubarTrigger>
+                    <MenubarContent>
+                    <MenubarItem><Link href="/" locale="en">English</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="hi">Hindi</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="fi">Finnish</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="ja">Japanese</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="zh-CN">Chinese</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="ru-RU">Russian</Link></MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem><Link href="/" locale="ko-KR">Korean</Link></MenubarItem>
+                    <MenubarSeparator />
+                    </MenubarContent>
+                </MenubarMenu>
+                </Menubar>
+                    
                 </div>
                 <div
                  onClick={toggleIsOpen}
@@ -119,40 +160,39 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                        {currentUser?(
                             <>
                             <MenuItem 
-                            label='My trips'
+                            label={s("trip")}
                             onClick={()=>router.push("/trips")}
                             />
                             <MenuItem 
-                            label='My favorites'
+                            label={s("fav")}
                             onClick={()=>router.push('/favorites')}
                             />
                             <MenuItem 
-                            label='My reservation'
+                            label={s("reservation")}
                             onClick={()=>router.push("/reservations")}
                             />
                             <MenuItem 
-                            label='My properties'
+                            label={s("property")}
                             onClick={()=>router.push('/properties')}
                             />
                             <MenuItem 
-                            label='Airbnb my home'
+                            label={t("airbnb")}
                             onClick={onRent}
                             />
                             <hr />
                             <MenuItem 
-                            label='Logout'
+                            label={s("logout")}
                             onClick={()=>signOut()}
-                            />
-                           
+                            />        
                             </>
                        ):(
                             <>
                             <MenuItem 
-                            label='Login'
+                            label={s("login")}
                             onClick={(loginModal.onOpen)}
                             />
                             <MenuItem 
-                            label='Signup'
+                            label={s("signup")}
                             onClick={registerModal.onOpen}
                             />
                             </>

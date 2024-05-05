@@ -1,9 +1,10 @@
-import ClientOnly from "../Component/ClientOnly"
-import EmptyState from "../Component/EmptyState"
-import Heading from "../Component/Heading"
-import getCurrentUser from "../action/getCurrentUser"
-import getReservation from "../action/getReservations"
-import client from "../libs/prismadb"
+import { getTranslations } from "next-intl/server"
+import ClientOnly from "../../Component/ClientOnly"
+import EmptyState from "../../Component/EmptyState"
+import Heading from "../../Component/Heading"
+import getCurrentUser from "../../action/getCurrentUser"
+import getReservation from "../../action/getReservations"
+import client from "../../libs/prismadb"
 import ReservationClient from "./ReservationClient"
 
 
@@ -21,13 +22,13 @@ const ReservationPage = async () => {
     }
 
     const reservation = await getReservation({authorId:currentUser.id})
-
+    const t = await getTranslations("reservs")
     if( reservation.length === 0){
         return(
             <ClientOnly>
                 <EmptyState
-                 title="No Reservations Found"
-                 subtitle="Seems like you have no resevation for your properties"
+                 title={t("title")}
+                 subtitle={t("subtitle")}
                 />
             </ClientOnly>
         )

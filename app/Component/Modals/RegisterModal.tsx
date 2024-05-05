@@ -13,11 +13,13 @@ import {FcGoogle} from 'react-icons/fc';
 import { AiFillGithub } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import useLoginModal from "@/app/Hooks/useLoginModal";
+import { useTranslations } from "next-intl";
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading,setIsLoading]=useState(false);
+    const t  = useTranslations("registerPage")
 
     const{
         register,
@@ -60,12 +62,12 @@ const RegisterModal = () => {
     const bodyContent = (
         <div>
             <Heading
-              title="Welcome to Airbnb"
-              subtitle="Create an account"
+              title={t("title")}
+              subtitle={t("subTitle")}
              />
              <Input 
                id="email"
-               label="Email"
+               label={t("email")}
                type={"text"}
                register={register}
                errors={errors}
@@ -73,7 +75,7 @@ const RegisterModal = () => {
              />
              <Input 
                id="name"
-               label="Username"
+               label={t("username")}
                type={"text"}
                register={register}
                errors={errors}
@@ -81,7 +83,7 @@ const RegisterModal = () => {
              />
              <Input 
                id="password"
-               label="Password"
+               label={t("password")}
                type={"password"}
                register={register}
                errors={errors}
@@ -97,23 +99,23 @@ const RegisterModal = () => {
                 <Button 
                  icon={FcGoogle}
                  outline
-                 label="Continue with google"
+                 label={t("google")}
                  onClick={()=>{}}
                 />
                 <Button 
                  icon={AiFillGithub}
                  outline
-                 label="Continue with github"
+                 label={t("github")}
                  onClick={()=>signIn('github')}
                 />
             </div>
             <div className="flex flex-row justify-center ">
-                <div className="pr-2 text-gray-500">Already have an account? </div>
+                <div className="pr-2 text-gray-500">{t("haveAcc")} </div>
                 <div 
                  onClick={toggle}
                  className="cursor-pointer hover:underline underline-offset-1"
                 >
-                     Log in
+                    {t("login")}
                 </div>
             </div>
         </div>
