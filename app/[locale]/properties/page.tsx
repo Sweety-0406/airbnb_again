@@ -1,8 +1,8 @@
 import EmptyState from "../../Component/EmptyState";
 import ClientOnly from "../../Component/ClientOnly";
-import getCurrentUser from "../../action/getCurrentUser";
+import getCurrentUser from "../action/getCurrentUser";
 import Heading from "../../Component/Heading";
-import getListings from "../../action/getListings";
+import getListings from "../action/getListings";
 import PropertiesClient from "./PropertiesClient";
 import { getTranslations } from "next-intl/server";
 

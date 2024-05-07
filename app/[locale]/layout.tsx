@@ -6,11 +6,10 @@ import ClientOnly from '../Component/ClientOnly'
 import ToasterProvider from '../Provider/ToasterProvider'
 import RegisterModal from '../Component/Modals/RegisterModal'
 import LoginModal from '../Component/Modals/LoginModal'
-import getCurrentUser from '../action/getCurrentUser'
+import getCurrentUser from './action/getCurrentUser'
 import RentModal from '../Component/Modals/RentModal'
 import SearchModal from '../Component/Modals/SearchModal'
 import {NextIntlClientProvider, useLocale} from 'next-intl'
-import { notFound, useParams } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 
 
@@ -30,12 +29,6 @@ export default async function RootLayout({
   params: {locale: string};
 }) {
   const currentUser = await getCurrentUser();
-  // const locale = useLocale();
-  // const params = useParams()
-  // if(params.locale !== locale){
-  //   notFound();
-  // }
-
   const messages = await getMessages()
   return (
     <html lang={locale}>

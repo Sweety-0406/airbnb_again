@@ -16,7 +16,7 @@ const Calendar:React.FC<CalendarProps>=({
 })=>{
     return(
         <div>
-            <DateRange className="w-full "
+            <DateRange className="w-full flex justify-center"
             rangeColors={["#262626"]}
             ranges={[value]}
             date={new Date()}

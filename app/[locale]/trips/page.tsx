@@ -1,7 +1,7 @@
 import EmptyState from "../../Component/EmptyState";
 import ClientOnly from "../../Component/ClientOnly";
-import getCurrentUser from "../../action/getCurrentUser";
-import getReservation from "../../action/getReservations";
+import getCurrentUser from "../action/getCurrentUser";
+import getReservation from "../action/getReservations";
 import TripsClient from "./TripsClient";
 import Heading from "../../Component/Heading";
 import { getTranslations } from "next-intl/server";

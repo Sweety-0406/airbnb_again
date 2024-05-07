@@ -2,9 +2,9 @@ import ClientOnly from "../Component/ClientOnly"
 import Container from "../Component/Container"
 import ListingCard from "../Component/Listing/ListingCard";
 import EmptyState from "../Component/EmptyState";
-import getCurrentUser from "../action/getCurrentUser";
-import  getListings, { IListingParams }  from "../action/getListings";
-import { itemCount } from "../action/getListings";
+import getCurrentUser from "./action/getCurrentUser";
+import  getListings, { IListingParams }  from "./action/getListings";
+import { itemCount } from "./action/getListings";
 import Heading from "../Component/Heading";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -52,7 +52,7 @@ const Home =async ({searchParams}:HomeProps) => {
       <ClientOnly>
         <Container>
           <div className="
-           mt-20
+           mt-44
            grid
            grid-cols-1
            sm:grid-cols-2
@@ -125,4 +125,3 @@ const Home =async ({searchParams}:HomeProps) => {
 }
 
 export default Home;
-

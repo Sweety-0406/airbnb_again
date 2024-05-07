@@ -8,6 +8,7 @@ import { IoDiamond } from 'react-icons/io5';
 import { BsSnow } from "react-icons/bs";
 import CategoryBox from "./CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export const categories=[
     {
@@ -91,12 +92,10 @@ const Categories = () =>{
     const params = useSearchParams();
     const category = params?.get('category');
     const pathName = usePathname()
+    const t = useTranslations();
 
-    const mainPage = pathName==='/'
-    if(!mainPage){
-        return(
-            null
-        )
+    if (pathName && !['/en', '/fi', '/hi', '/ja', '/ko-KR', '/ru-RU', '/zh-CN'].includes(pathName)) {
+        return null;
     }
     return (
         <div className="
