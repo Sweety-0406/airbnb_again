@@ -7,7 +7,8 @@
         "anyWeek":"どの週でも",
         "guests":"ゲスト",
         "addGuest":"ゲストを追加",
-        "anyWhere":"どこでも"
+        "anyWhere":"どこでも",
+        "addPrice": "価格を追加"
     },
     "Menubar":{
         "trip":"私の旅行",
@@ -22,7 +23,8 @@
         "title":"旅行が見つかりません！",
         "subtitle":"まだ旅行を予約していないようです",
         "tripTitle":"旅行",
-        "tripSubtitle":"あなたが行った場所とあなたが行く場所！"
+        "tripSubtitle":"あなたが行った場所とあなたが行く場所！",
+        "cancelReservation":"予約をキャンセルする"
     },
     "favs":{
         "title":"お気に入りが見つかりません！",
@@ -131,7 +133,9 @@
         "room":"部屋",
         "RDes":"何部屋必要ですか？",
         "bathroom":"バスルーム",
-        "BDes":"何個のバスルームが必要ですか？"
+        "BDes":"何個のバスルームが必要ですか？",
+        "priceTitle": "予算計画は何ですか？",
+        "priceSubtitle": "ここに金額を入力してください"
     },
     "listingInfo":{
         "placeDes":"このスペースについて",

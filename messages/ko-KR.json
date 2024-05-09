@@ -7,7 +7,8 @@
         "anyWeek": "아무 주",
         "guests": "손님",
         "addGuest": "손님 추가",
-        "anyWhere": "어디서나"
+        "anyWhere": "어디서나",
+        "addPrice": "가격 추가"
     },
     "Menubar": {
         "trip": "내 여행",
@@ -22,7 +23,8 @@
         "title": "여행을 찾을 수 없습니다!",
         "subtitle": "예약된 여행이 없는 것 같습니다.",
         "tripTitle": "여행",
-        "tripSubtitle": "여행한 곳과 가려는 곳을 살펴보세요!"
+        "tripSubtitle": "여행한 곳과 가려는 곳을 살펴보세요!",
+        "cancelReservation":"예약 취소"
     },
     "favs": {
         "title": "즐겨찾기를 찾을 수 없습니다!",
@@ -131,7 +133,9 @@
         "room": "방",
         "RDes": "몇 개의 방이 필요하십니까?",
         "bathroom": "욕실",
-        "BDes": "몇 개의 욕실이 필요하십니까?"
+        "BDes": "몇 개의 욕실이 필요하십니까?",
+        "priceTitle": "예산 계획이 무엇입니까?",
+        "priceSubtitle": "여기에 금액을 입력하세요"
     },
     "listingInfo": {
         "placeDes": "이 공간에 대해",

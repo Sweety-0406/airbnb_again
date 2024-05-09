@@ -50,9 +50,9 @@ const CategoryBox:React.FC<CategoryBoxProps> =({
           ${selected ? 'text-black':'text-slate-500'}
         `}>
             <div>
-                <Icon size={26} />
+                <Icon size={23} />
             </div>
-            <div>
+            <div className="text-sm">
                 {label}
             </div>
         </div>

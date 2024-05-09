@@ -17,14 +17,14 @@ const Counter:React.FC<CounterProps> = ({
     onChange
 }) =>{
     const onAdd = useCallback(()=>{
-         onChange(value+1);
+        onChange(value+1);
     },[value,onChange])
 
     const onSub = useCallback(()=>{
         if(value == 1){
             return ;
         }
-         onChange(value-1);
+        onChange(value-1);
     },[value,onChange])
 
     return (

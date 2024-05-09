@@ -10,7 +10,7 @@ import { categories } from "@/app/Component/Navbar/Categories";
 import ListingInfo from "@/app/Component/Listing/ListingInfo";
 import ListingReservation from "@/app/Component/Listing/ListingReservation";
 import useLoginModal from "@/app/Hooks/useLoginModal";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -36,6 +36,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
 })=>{
     const loginModal = useLoginModal();
     const router = useRouter();
+    
 
     const disabledDates = useMemo(()=>{
         let dates:Date[]=[];
@@ -54,29 +55,20 @@ const ListingClient:React.FC<ListingClientProps> = ({
     const [isLoading,setIsLoading]=useState(false);
     const [totalPrice,setTotalPrice]=useState(listing.price);
     const [dateRange,setDateRange]=useState<Range>(initialDateRange);
-
-    const onCreateReservation = useCallback(()=>{
+   
+    const onCreateReservation = useCallback(async()=>{
         if(!currentUser){
             return loginModal.onOpen();
         }
         setIsLoading(true);
-        axios.post('/api/reservations',{
+
+        const res = await axios.post('/api/checkout',{
             listingId : listing.id,
             totalPrice,
             startDate: dateRange.startDate,
-            endDate : dateRange.endDate
+            endDate : dateRange.endDate,
         })
-        .then(()=>{
-            toast.success('Successfully reservaed.')
-            setDateRange(initialDateRange);
-            router.push('/trips')
-        })
-        .catch(()=>{
-            toast.error('Something went wrong...')
-        })
-        .finally(()=>{
-            setIsLoading(false);
-        })
+        window.location = res.data.url;
     },[
         router,
         listing?.id,

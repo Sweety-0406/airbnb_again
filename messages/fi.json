@@ -7,8 +7,9 @@
         "anyWeek":"Mikä tahansa viikko",
         "guests":"Vieraat",
         "addGuest":"Lisää vieraat",
-        "anyWhere":"Missä tahansa"
-        
+        "anyWhere":"Missä tahansa",
+        "addPrice": "Lisää hinta"
+
     },
     "Menubar":{
         "trip": "Matkani",
@@ -23,7 +24,8 @@
         "title": "Ei löydettyjä matkoja!",
         "subtitle": "Näyttää siltä, ettet ole varannut mitään matkoja.",
         "tripTitle": "Matkat",
-        "tripSubtitle": "Missä olet käynyt ja minne olet menossa!"
+        "tripSubtitle": "Missä olet käynyt ja minne olet menossa!",
+        "cancelReservation":" Peru varaus"
     },
     "favs":{
         "title": "Ei löydettyjä suosikkeja!",
@@ -132,7 +134,9 @@
         "room": "Huoneet",
         "RDes": "Kuinka monta huonetta tarvitset?",
         "bathroom": "Kylpyhuoneet",
-        "BDes": "Kuinka monta kylpyhuonetta tarvitset?"
+        "BDes": "Kuinka monta kylpyhuonetta tarvitset?",
+        "priceTitle": "Mikä on budjettisuunnitelmasi?",
+        "priceSubtitle": "Syötä summa tähän"
     },
     "listingInfo": {
         "placeDes": "Tietoja tästä tilasta",
@@ -149,7 +153,7 @@
         "total": "Yhteensä"
     },
     "currencySign":{
-        "currency": "€"
+        "currency": "$"
     },
     "support":{
         "title":"Tuki",

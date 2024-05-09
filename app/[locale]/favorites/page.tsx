@@ -1,9 +1,7 @@
 import EmptyState from "../../Component/EmptyState";
 import ClientOnly from "../../Component/ClientOnly";
 import getCurrentUser from "../action/getCurrentUser";
-import getReservation from "../action/getReservations";
 import FavoritesClient from "./FavoritesClient";
-import Heading from "../../Component/Heading";
 import getFavoriteListing from "../action/getFavoriteListing";
 import { getTranslations } from "next-intl/server";
 

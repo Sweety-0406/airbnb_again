@@ -7,7 +7,8 @@
         "anyWeek": "任何一周",
         "guests": "客人",
         "addGuest": "添加客人",
-        "anyWhere": "任何地方"
+        "anyWhere": "任何地方",
+        "addPrice": "添加价格"
     },
     "Menubar": {
         "trip": "我的行程",
@@ -22,7 +23,8 @@
         "title": "未找到行程！",
         "subtitle": "看起来您还没有预订任何行程",
         "tripTitle": "行程",
-        "tripSubtitle": "您去过哪里，将要去哪里！"
+        "tripSubtitle": "您去过哪里，将要去哪里！",
+        "cancelReservation":"取消预订"
     },
     "favs": {
         "title": "未找到收藏！",
@@ -131,7 +133,9 @@
         "room": "房间",
         "RDes": "您需要多少间房？",
         "bathroom": "浴室",
-        "BDes": "您需要多少个浴室？"
+        "BDes": "您需要多少个浴室？",
+        "priceTitle": "您的预算计划是什么？",
+        "priceSubtitle": "在这里输入金额"
     },
     "listingInfo": {
         "placeDes": "关于这个空间",

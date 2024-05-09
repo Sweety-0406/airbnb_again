@@ -5,6 +5,7 @@ export interface IListingParams{
   roomCount?:string;
   bathroomCount?:string;
   guestCount?:string;
+  price?:string;
   startDate?:string;
   endDate?:string;
   locationValue?:string;
@@ -22,6 +23,7 @@ export default async function getListings(params : IListingParams) {
       roomCount,
       bathroomCount,
       guestCount,
+      price,
       startDate,
       endDate,
       locationValue,
@@ -62,6 +64,12 @@ export default async function getListings(params : IListingParams) {
       if(guestCount){
         query.guestCount ={
           gte : +guestCount
+        }
+      }
+
+      if(price){
+        query.price ={
+          lte : +price
         }
       }
 

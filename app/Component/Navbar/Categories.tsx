@@ -101,8 +101,7 @@ const Categories = () =>{
         <div className="
          border-t-[2px]
          border-gray-300
-         
-         mb-5 
+         mb-2 
         ">
             <div
             className="

@@ -50,10 +50,8 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
         if (refone.current) {
             if (!(refone.current as HTMLElement).contains(e.target)) {
                 setIsOpen(false);
-                console.log("outside");
             } else {
                 setIsOpen(true);
-                console.log("inside");
             }
         }
     }

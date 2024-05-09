@@ -7,6 +7,8 @@ import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { differenceInDays } from 'date-fns';
 import { useTranslations } from 'next-intl';
+
+
 const Search=()=>{
     const searchModal = useSearchModal()
     const {getByValue} = useCountries()
@@ -16,7 +18,9 @@ const Search=()=>{
     const startDate = params?.get('startDate')
     const endDate = params?.get('endDate')
     const guestCount = params?.get('guestCount')
+    const price = params?.get('price')
     const t =  useTranslations("Search")
+    const c = useTranslations("currencySign")
 
 
     const locationHandler = useMemo(()=>{
@@ -45,6 +49,13 @@ const Search=()=>{
         }
         return t("addGuest")
     },[guestCount])
+
+    const priceHandler = useMemo(()=>{
+        if(price){
+            return `${c("currency")}${price} `
+        }
+        return t("addPrice")
+    },[price])
 
     return(
         <div
@@ -81,6 +92,19 @@ const Search=()=>{
                   truncate
                 ">
                     {durationHandler} 
+                </div>
+                <div
+                 className="
+                  hidden
+                  sm:block
+                  px-2
+                  border-r-[1px]
+                  text-sm
+                  font-semibold
+                  hover:underline underline-offset-2
+                  truncate
+                ">
+                    {priceHandler} 
                 </div>
                    <div className='hidden sm:block'>
                         <div className=" flex flex-row justify-between items-center">

@@ -7,7 +7,8 @@
         "anyWeek":"Any Week",
         "guests":"guests",
         "addGuest":"Add Guests",
-        "anyWhere":"Anywhere"
+        "anyWhere":"Anywhere",
+        "addPrice":"Add Price"
     },
     "Menubar":{
         "trip":"My trips",
@@ -22,7 +23,8 @@
         "title":"No Trips Found!",
         "subtitle":"Looks like you havent reserved any trips",
         "tripTitle":"Trips",
-        "tripSubtitle":"Where you have been and where you are going !"
+        "tripSubtitle":"Where you have been and where you are going !",
+        "cancelReservation":"Cancel Reservation"
     },
     "favs":{
         "title":"No Favourites Found!",
@@ -131,7 +133,9 @@
         "room":"Rooms",
         "RDes":"How many rooms do you need?",
         "bathroom":"Bathrooms",
-        "BDes":"How many bathrooms do you need?"
+        "BDes":"How many bathrooms do you need?",
+        "priceTitle":"What's your budget plan",
+        "priceSubtitle":"Enter your amount here"
     },
     "listingInfo":{
         "placeDes":"About this space",

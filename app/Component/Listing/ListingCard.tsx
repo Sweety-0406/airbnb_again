@@ -2,7 +2,7 @@
 
 import useCountries from "@/app/Hooks/useCountries"
 import { SafeListing, SafeReservation, SafeUser, SafeImage } from "@/app/types"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useCallback, useMemo } from "react"
 import {format} from 'date-fns'
 import Image from 'next/image'
@@ -39,6 +39,7 @@ const ListingCard:React.FC<ListingCardProps>=({
     onAction
 })=>{
     const router=useRouter();
+    const pathname = usePathname();
     const {getByValue} = useCountries();
     const location = getByValue(data.locationValue);
     const t =  useTranslations("listingReservation")
@@ -46,7 +47,13 @@ const ListingCard:React.FC<ListingCardProps>=({
     
     const price = useMemo(()=>{
         if(!reservation){
-            return data.price;
+            if(pathname == '/hi'){
+                return (data.price * 83.50);
+            }
+            return (data.price);
+        }
+        if(pathname == '/hi'){
+            return  (reservation.totalPrice * 83.50);
         }
         return reservation.totalPrice;
     },[reservation,data.price])

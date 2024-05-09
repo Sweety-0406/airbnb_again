@@ -13,11 +13,13 @@ import Heading from '../Heading';
 import Calendar from '../Inputs/Calendar';
 import Counter from '../Inputs/Counter';
 import { useTranslations } from 'next-intl';
+import { Input } from '@/components/ui/input';
 
 enum STEPS{
     LOCATION = 0,
     DATE = 1,
-    INFO = 2
+    PRICE = 2,
+    INFO = 3
 }
 const SearchModal = ()=>{
     const searchModal = useSearchModal();
@@ -34,6 +36,7 @@ const SearchModal = ()=>{
         endDate : new Date(),
         key : 'selection'
     })
+    const [price,setPrice] = useState(1);
     const t = useTranslations("searchForm")
     const b = useTranslations("button")    
 
@@ -62,7 +65,8 @@ const SearchModal = ()=>{
             locationValue : location?.value,
             bathroomCount,
             roomCount,
-            guestCount
+            guestCount,
+            price
         } 
         if(dateRange.startDate){
             updatedQuery.startDate = formatISO(dateRange.startDate)
@@ -84,7 +88,8 @@ const SearchModal = ()=>{
             startDate : new Date(),
             endDate : new Date(),
             key : 'selection'
-        })
+        });
+        setPrice(1)
         searchModal.onClose();
         router.push(url);
 
@@ -95,6 +100,7 @@ const SearchModal = ()=>{
         guestCount,
         location,
         dateRange,
+        price,
         onNext,
         params,
         router,
@@ -146,12 +152,31 @@ const SearchModal = ()=>{
         bodyContent = (
             <div className='flex flex-col gap-8'>
                 <Heading 
-                  title={t("dataTitle")}
-                  subtitle={t("dataSubtitle")}
+                  title={t("dateTitle")}
+                  subtitle={t("dateSubtitle")}
                 />
+                <div className='flex justify-center'>
                 <Calendar 
                   value={dateRange}
                   onChange={(value)=>setDateRange(value.selection)}
+                />
+                </div>
+            </div>
+        )
+    }
+
+    if(step === STEPS.PRICE){
+        bodyContent = (
+            <div className='flex flex-col '>
+                <Heading 
+                  title={t("priceTitle")}
+                  subtitle={t("priceSubtitle")}
+                />
+                <Input
+                    className='mt-4'
+                    type="number"
+                    value={price}
+                    onChange={(e) => setPrice(Number(e.target.value))}
                 />
             </div>
         )
@@ -159,7 +184,7 @@ const SearchModal = ()=>{
 
     if(step === STEPS.INFO){
         bodyContent = (
-            <div className='flex flex-col gap-8'>
+            <div className='flex flex-col '>
                 <Heading 
                   title={t("infoTitle")}
                   subtitle={t("infoSubtitle")}
