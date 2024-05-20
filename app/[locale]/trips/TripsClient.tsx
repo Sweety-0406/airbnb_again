@@ -62,7 +62,7 @@ const TripsClient:React.FC<TripsClientProps> =  ({
         console.log(res.totalPrice)
     ))
     return(
-       <div className="mt-16">
+       <div className="pt-32">
          <Container>
             <Heading
                title={t("tripTitle")}

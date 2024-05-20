@@ -34,9 +34,10 @@ export async function POST(
         address?.postal_code,
     ]
 
+    var order :any;
     const addressString = addressComponents.filter((c)=> c !== null).join(',')
     if(event.type === "checkout.session.completed"){
-        const order = await prisma.reservation.update({
+         order = await prisma.reservation.update({
             where:{
                 id:session?.metadata?.reservedId
             },
@@ -48,6 +49,7 @@ export async function POST(
         });
 
     }
-
+    console.log(order)
+    console.log("order")
     return new NextResponse(null,{status:200})
 }

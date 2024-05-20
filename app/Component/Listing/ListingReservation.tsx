@@ -48,7 +48,7 @@ const ListingResservation:React.FC<ListingReservationProps>=({
                 </div>
             </div>
             <hr />
-            <div className="w-full flex justify-center">
+            <div >
             <Calendar 
               value={dateRange}
               disabledDates={disabledDates}

@@ -120,7 +120,8 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                  onClick={toggleIsOpen}
                  className="
                     ml-2
-                    py-3
+                    py-2
+                    pt-3
                     px-[10px]
                     border-[1px]
                     rounded-full
@@ -136,6 +137,8 @@ const Usermenu:React.FC<UsermenuProps>=({currentUser})=>{
                     hidden
                     md:block
                     pl-1
+                    w-[22px]
+                    h-[22px]
                     '>
                         <Avatar src={currentUser?.image} />
                     </div>

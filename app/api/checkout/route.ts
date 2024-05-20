@@ -4,14 +4,15 @@ import { stripe } from "@/lib/stripe";
 import  prisma from '@/app/libs/prismadb';
 import getCurrentUser from "@/app/[locale]/action/getCurrentUser";
 
-const corsHeadres = {
+const corsHeaders = {
     "Access-Control-Allow-Origin":"*",
     "Access-Control-Allow-Methods":"GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headres":"Content-Type, Authorization",
+    "Access-Control-Allow-Headers":"Content-Type, Authorization",
+    
 }
 
 export async function OPTIONS() {
-    return NextResponse.json({},{headers:corsHeadres})
+    return NextResponse.json({},{headers:corsHeaders})
 }
 
 export async function POST(
@@ -74,14 +75,14 @@ export async function POST(
         phone_number_collection:{
             enabled: true
         },
-        success_url: `${process.env.FRONTED_URL}/trips?success=1`,
-        cancel_url: `${process.env.FRONTED_URL}/trips?canceled=1`,
+        success_url: `${process.env.FRONTEND_URL}/trips?success=1`,
+        cancel_url: `${process.env.FRONTEND_URL}/trips?canceled=1`,
         metadata:{
             reservedId: ListingAndReservation.reservations[ListingAndReservation.reservations.length - 1].id
         }
     })
 
     return NextResponse.json({url: session.url}, {
-        headers: corsHeadres
+        headers: corsHeaders
     })
 }

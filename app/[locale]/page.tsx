@@ -52,7 +52,7 @@ const Home =async ({searchParams}:HomeProps) => {
       <ClientOnly>
         <Container>
           <div className="
-           mt-44
+           mt-56
            grid
            grid-cols-1
            sm:grid-cols-2

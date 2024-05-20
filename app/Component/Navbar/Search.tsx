@@ -72,7 +72,6 @@ const Search=()=>{
                 <div
                  className="
                   px-2
-                  sm:border-r-[1px]
                   text-sm
                   font-semibold
                   hover:underline underline-offset-2
@@ -80,12 +79,12 @@ const Search=()=>{
                 ">
                     {locationHandler}
                 </div>
+                <div className='sm:border-r-[1px] text-white'>.</div>
                 <div
                  className="
                   hidden
                   sm:block
                   px-2
-                  border-r-[1px]
                   text-sm
                   font-semibold
                   hover:underline underline-offset-2
@@ -93,12 +92,12 @@ const Search=()=>{
                 ">
                     {durationHandler} 
                 </div>
+                <div className='sm:border-r-[1px] text-white'>.</div>
                 <div
                  className="
                   hidden
                   sm:block
                   px-2
-                  border-r-[1px]
                   text-sm
                   font-semibold
                   hover:underline underline-offset-2
@@ -106,24 +105,25 @@ const Search=()=>{
                 ">
                     {priceHandler} 
                 </div>
-                   <div className='hidden sm:block'>
-                        <div className=" flex flex-row justify-between items-center">
-                            <div
-                            className="
-                            px-2
-                            text-sm
-                            text-gray-600
-                            truncate
-                            hover:underline underline-offset-2
-                            "
-                            >
-                                {guestHandler}
-                            </div>
-                            <div className="bg-rose-500 rounded-full text-white w-8 h-8 text-center pt-1 pl-1">
-                            <BsSearch size={15} className='mt-1 ml-1'/>
-                            </div>
-                        </div>                    
-                   </div>
+                <div className='sm:border-r-[1px] text-white'>.</div>
+                <div className='hidden sm:block'>
+                    <div className=" flex flex-row justify-between items-center">
+                        <div
+                        className="
+                        px-2
+                        text-sm
+                        text-gray-600
+                        truncate
+                        hover:underline underline-offset-2
+                        "
+                        >
+                            {guestHandler}
+                        </div>
+                        <div className="bg-rose-500 rounded-full text-white w-8 h-8 text-center pt-1 pl-1">
+                        <BsSearch size={15} className='mt-1 ml-1'/>
+                        </div>
+                    </div>                    
+                </div>
                 <div>
                     
                 </div>
