@@ -48,7 +48,7 @@ const ResevationClient:React.FC<TripsClientProps> =  ({
         console.log(res.totalPrice)
     ))
     return(
-       <div className="mt-16">
+       <div className="pt-32">
          <Container>
             <Heading
                title={t("reservTitle")}
@@ -61,8 +61,7 @@ const ResevationClient:React.FC<TripsClientProps> =  ({
                 sm:grid-cols-2
                 md:grid-cols-3
                 lg:grid-cols-4
-                xl:grid-cols-5,
-                2xl:grid-cols-6
+                xl:grid-cols-5
                 gap-8
              ">
                 {
