@@ -8,7 +8,6 @@ import { getTranslations } from "next-intl/server";
 const FavoritePage = async ()=>{
     const currentUser = await getCurrentUser()
     if(!currentUser){
-        console.log("no user found")
         return(
             <ClientOnly>
                 <EmptyState

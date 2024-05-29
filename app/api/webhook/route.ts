@@ -49,7 +49,6 @@ export async function POST(
         });
 
     }
-    console.log(order)
-    console.log("order")
+
     return new NextResponse(null,{status:200})
 }

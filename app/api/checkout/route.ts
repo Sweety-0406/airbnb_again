@@ -28,6 +28,7 @@ export async function POST(
         startDate,
         endDate,
         totalPrice,
+        pathname
     } = body;
 
     if(!listingId || !startDate || !endDate || !totalPrice){
@@ -75,8 +76,8 @@ export async function POST(
         phone_number_collection:{
             enabled: true
         },
-        success_url: `${process.env.FRONTEND_URL}/trips?success=1`,
-        cancel_url: `${process.env.FRONTEND_URL}/trips?canceled=1`,
+        success_url: `${pathname}/trips?success=1`,
+        cancel_url: `${pathname}/trips?canceled=1`,
         metadata:{
             reservedId: ListingAndReservation.reservations[ListingAndReservation.reservations.length - 1].id
         }

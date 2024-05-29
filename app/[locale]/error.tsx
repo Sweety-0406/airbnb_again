@@ -7,9 +7,7 @@ interface ErrorStateProps{
     error : Error
 }
 const ErrorState:React.FC<ErrorStateProps> =  ({error}) =>{
-    useEffect(()=>{
-        console.log(error)
-    },[error])
+
     return(
         <EmptyState 
             title="Oh Uh"

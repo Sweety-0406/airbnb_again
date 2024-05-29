@@ -58,9 +58,7 @@ const TripsClient:React.FC<TripsClientProps> =  ({
     )   
 
     
-    reservations.map((res)=>(
-        console.log(res.totalPrice)
-    ))
+
     return(
        <div className="pt-32">
          <Container>

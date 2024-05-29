@@ -22,7 +22,6 @@ export async function POST(resquest : Request) {
         description
 
     } = body;
-    console.log(body)
 
     const listing = await prisma.listing.create({
         data:{

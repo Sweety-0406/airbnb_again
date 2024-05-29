@@ -10,11 +10,12 @@ import { categories } from "@/app/Component/Navbar/Categories";
 import ListingInfo from "@/app/Component/Listing/ListingInfo";
 import ListingReservation from "@/app/Component/Listing/ListingReservation";
 import useLoginModal from "@/app/Hooks/useLoginModal";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Range } from "react-date-range";
+import path from "path";
 
 
 const initialDateRange = {
@@ -55,8 +56,20 @@ const ListingClient:React.FC<ListingClientProps> = ({
     const [isLoading,setIsLoading]=useState(false);
     const [totalPrice,setTotalPrice]=useState(listing.price);
     const [dateRange,setDateRange]=useState<Range>(initialDateRange);
+    let pathname = "";
    
     const onCreateReservation = useCallback(async()=>{
+        if (typeof window !== "undefined") {
+            const fullUrl = window.location.href;
+    
+            // Use URL constructor to parse the full URL
+            const url = new URL(fullUrl);
+    
+            // Extract the origin (base URL)
+            pathname = url.origin;
+            console.log("Base URL: ", pathname);
+        }
+
         if(!currentUser){
             return loginModal.onOpen();
         }
@@ -67,6 +80,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
             totalPrice,
             startDate: dateRange.startDate,
             endDate : dateRange.endDate,
+            pathname
         })
         window.location = res.data.url;
     },[

@@ -10,7 +10,6 @@ const PropertiesPage = async ()=>{
     const currentUser = await getCurrentUser()
     const t = await getTranslations("props")
     if(!currentUser){
-        console.log("no user found")
         return(
             <ClientOnly>
                 <EmptyState
@@ -21,9 +20,7 @@ const PropertiesPage = async ()=>{
         )
     }
     const listings = await getListings( {userId : currentUser.id}) 
-    listings.map((res)=>(
-        console.log(res.id)
-    ))
+
     if(listings.length == 0){
         return(
             <ClientOnly> 
