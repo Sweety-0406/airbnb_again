@@ -4,7 +4,7 @@
 ![Image](<Screenshot 2024-10-20 203334-1.png>)
 
 
-This is a repository for a Full Stack Airbnb Clone with Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth.
+This is a repository for a Full Stack Airbnb Clone with Next.js 14 App Router: React, Tailwind, Prisma, MongoDB, NextAuth.
 
 Features:
 
@@ -36,7 +36,7 @@ Features:
 
 ### Prerequisites
 
-**Node version 14.x**
+**Node version 20.x**
 
 ### Cloning the repository
 
