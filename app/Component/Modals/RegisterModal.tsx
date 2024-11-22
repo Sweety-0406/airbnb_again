@@ -100,7 +100,7 @@ const RegisterModal = () => {
                  icon={FcGoogle}
                  outline
                  label={t("google")}
-                 onClick={()=>{}}
+                 onClick={()=>signIn('google')}
                 />
                 <Button 
                  icon={AiFillGithub}
